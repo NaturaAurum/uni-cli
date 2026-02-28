@@ -1,0 +1,3042 @@
+{
+  "name": "real-unity-benchmark-trust",
+  "generated_at_utc": "2026-02-28T12:27:53.010412+00:00",
+  "url": "http://127.0.0.1:8080/mcp",
+  "unity_instance_selector": "uni-cli",
+  "token_counter_mode": "tiktoken:o200k_base",
+  "iterations": 5,
+  "warmup": 1,
+  "repetitions": 1,
+  "scene_profile": "all",
+  "runs": [
+    {
+      "run_index": 1,
+      "resolved_instance": "uni-cli@eed8461035005b2a",
+      "scene_profile": "all",
+      "scenes": [
+        {
+          "profile": "small",
+          "scene_name": "SmallBench",
+          "scene_path": "Assets/BenchScenes/SmallBench.unity",
+          "scenarios": [
+            {
+              "id": "hierarchy_query",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 170,
+                "output_tokens": 855,
+                "total_tokens": 1025,
+                "latency_ms": {
+                  "p50": 21.035999999999945,
+                  "p95": 22.225274999999975,
+                  "max": 22.488124999999968,
+                  "mean": 20.655541599999985
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 105,
+                "output_tokens": 140,
+                "total_tokens": 245,
+                "latency_ms": {
+                  "p50": 19.204624999999975,
+                  "p95": 21.18895040000004,
+                  "max": 21.310542000000044,
+                  "mean": 19.378908599999995
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 83.62573099415205,
+                "total_reduction_pct": 76.09756097560975,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 4.662820145082288
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 20.618166999999964,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 171,
+                    "total_tokens": 205,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SmallBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":1,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanceI...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 22.488124999999968,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 171,
+                    "total_tokens": 205,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SmallBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":1,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanceI...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 21.17387500000001,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 171,
+                    "total_tokens": 205,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SmallBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":1,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanceI...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 21.035999999999945,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 171,
+                    "total_tokens": 205,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SmallBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":1,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanceI...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 17.961541000000025,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 171,
+                    "total_tokens": 205,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SmallBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":1,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanceI...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 19.204624999999975,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 28,
+                    "total_tokens": 49,
+                    "stdout_preview": "row id=36680 name=Bench_Obj_001 parent=-\nok op=hierarchy.query count=1 next=- truncated=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 20.702584000000023,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 28,
+                    "total_tokens": 49,
+                    "stdout_preview": "row id=36680 name=Bench_Obj_001 parent=-\nok op=hierarchy.query count=1 next=- truncated=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 21.310542000000044,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 28,
+                    "total_tokens": 49,
+                    "stdout_preview": "row id=36680 name=Bench_Obj_001 parent=-\nok op=hierarchy.query count=1 next=- truncated=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 17.980667000000004,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 28,
+                    "total_tokens": 49,
+                    "stdout_preview": "row id=36680 name=Bench_Obj_001 parent=-\nok op=hierarchy.query count=1 next=- truncated=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 17.696124999999952,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 28,
+                    "total_tokens": 49,
+                    "stdout_preview": "row id=36680 name=Bench_Obj_001 parent=-\nok op=hierarchy.query count=1 next=- truncated=0",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "object_create",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 160,
+                "output_tokens": 1395,
+                "total_tokens": 1555,
+                "latency_ms": {
+                  "p50": 49.051124999999864,
+                  "p95": 50.07643340000003,
+                  "max": 50.117500000000035,
+                  "mean": 48.56721679999994
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 115,
+                "output_tokens": 100,
+                "total_tokens": 215,
+                "latency_ms": {
+                  "p50": 46.62787499999999,
+                  "p95": 49.87201720000001,
+                  "max": 50.018958999999974,
+                  "mean": 47.344358600000014
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 92.831541218638,
+                "total_reduction_pct": 86.17363344051448,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 0.40820838490470124
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 50.117500000000035,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281673_1' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281673_1\",\"instanceID\":-25214,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 45.17304199999983,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281673_2' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281673_2\",\"instanceID\":-25280,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 49.91216700000001,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281673_3' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281673_3\",\"instanceID\":-25350,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 48.58224999999994,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281673_4' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281673_4\",\"instanceID\":-25420,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 49.051124999999864,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281674_5' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281674_5\",\"instanceID\":-25490,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 44.47608400000003,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281674_1 id=-25630",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 46.31462499999994,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281674_2 id=-25696",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 50.018958999999974,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281674_3 id=-25762",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 49.28425000000014,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281674_4 id=-25832",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 46.62787499999999,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281674_5 id=-25902",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "reparent",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 150,
+                "output_tokens": 5425,
+                "total_tokens": 5575,
+                "latency_ms": {
+                  "p50": 95.33399999999936,
+                  "p95": 6918.385124599998,
+                  "max": 8613.935166,
+                  "mean": 1804.8629750000005
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 85,
+                "output_tokens": 140,
+                "total_tokens": 225,
+                "latency_ms": {
+                  "p50": 89.61037499999946,
+                  "p95": 91.92865839999946,
+                  "max": 92.26637499999946,
+                  "mean": 89.02694179999955
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 97.41935483870968,
+                "total_reduction_pct": 95.96412556053812,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 98.67124109536596
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 8613.935166,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281674_1' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281674_1\", \"instanceID\": -26108, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 136.18495900000127,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281683_2' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281683_2\", \"instanceID\": -26476, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 92.88012500000065,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281683_3' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281683_3\", \"instanceID\": -26608, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 85.98062499999948,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281683_4' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281683_4\", \"instanceID\": -26740, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 95.33399999999936,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281683_5' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281683_5\", \"instanceID\": -26876, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 86.02737500000046,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281683_1 parent=BenchParent_1772281683_1",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 92.26637499999946,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281683_2 parent=BenchParent_1772281683_2",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 89.61037499999946,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281683_3 parent=BenchParent_1772281683_3",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 90.57779199999949,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281683_4 parent=BenchParent_1772281683_4",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 86.65279199999887,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281683_5 parent=BenchParent_1772281683_5",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "asset_search",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 185,
+                "output_tokens": 45180,
+                "total_tokens": 45365,
+                "latency_ms": {
+                  "p50": 171.34174999999985,
+                  "p95": 173.62763339999992,
+                  "max": 173.99262500000034,
+                  "mean": 170.5824831999994
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 135,
+                "output_tokens": 9355,
+                "total_tokens": 9490,
+                "latency_ms": {
+                  "p50": 167.05333300000012,
+                  "p95": 168.21299199999908,
+                  "max": 168.2392919999991,
+                  "mean": 166.9457749999996
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 79.29393536963258,
+                "total_reduction_pct": 79.08078915463463,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 3.1185366603060825
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 172.1676669999983,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 165.90570799999858,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 173.99262500000034,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 169.50466599999993,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 171.34174999999985,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 166.87149999999917,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 167.05333300000012,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 168.2392919999991,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 164.4569580000006,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 168.10779199999894,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "batch_ops",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 190,
+                "output_tokens": 4600,
+                "total_tokens": 4790,
+                "latency_ms": {
+                  "p50": 52.71812500000017,
+                  "p95": 56.637299599999835,
+                  "max": 57.15495799999992,
+                  "mean": 53.61527480000027
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 125,
+                "output_tokens": 75,
+                "total_tokens": 200,
+                "latency_ms": {
+                  "p50": 52.90462500000004,
+                  "p95": 54.02974999999941,
+                  "max": 54.16712499999932,
+                  "mean": 52.4522502
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 98.36956521739131,
+                "total_reduction_pct": 95.82463465553236,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 4.6039440764588155
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 57.15495799999992,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281686_1' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 54.566665999999486,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281686_2' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 51.17216600000063,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281686_3' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 52.71812500000017,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281686_4' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 52.464459000001185,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281686_5' created successfully in s...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 52.90462500000004,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 54.16712499999932,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 52.049417000000986,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 49.65983399999985,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 53.480249999999785,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            }
+          ],
+          "overall": {
+            "output_reduction_pct_per_scenario": [
+              83.62573099415205,
+              92.831541218638,
+              97.41935483870968,
+              79.29393536963258,
+              98.36956521739131
+            ],
+            "output_reduction_median_pct": 92.831541218638,
+            "output_reduction_range_pct": {
+              "min": 79.29393536963258,
+              "max": 98.36956521739131
+            },
+            "output_reduction_weighted_pct": 82.92576799234183,
+            "total_reduction_weighted_pct": 82.2071685817184,
+            "baseline_total_tokens": 58310,
+            "wrapper_total_tokens": 10375,
+            "baseline_output_tokens": 57455,
+            "wrapper_output_tokens": 9810,
+            "baseline_success_rate": 1.0,
+            "wrapper_success_rate": 1.0
+          }
+        },
+        {
+          "profile": "medium",
+          "scene_name": "MediumBench",
+          "scene_path": "Assets/BenchScenes/MediumBench.unity",
+          "scenarios": [
+            {
+              "id": "hierarchy_query",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 170,
+                "output_tokens": 6255,
+                "total_tokens": 6425,
+                "latency_ms": {
+                  "p50": 21.586500000001507,
+                  "p95": 21.748383399999582,
+                  "max": 21.777249999999526,
+                  "mean": 21.21501680000044
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 105,
+                "output_tokens": 770,
+                "total_tokens": 875,
+                "latency_ms": {
+                  "p50": 21.729374999999607,
+                  "p95": 22.06639940000059,
+                  "max": 22.07291600000083,
+                  "mean": 21.4206248
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 87.6898481215028,
+                "total_reduction_pct": 86.38132295719845,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -1.4622512126626164
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 21.586500000001507,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1251,
+                    "total_tokens": 1285,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'MediumBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanc...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 20.209125000000938,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1251,
+                    "total_tokens": 1285,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'MediumBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanc...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 21.632916999999807,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1251,
+                    "total_tokens": 1285,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'MediumBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanc...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 21.777249999999526,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1251,
+                    "total_tokens": 1285,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'MediumBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanc...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 20.869292000000428,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1251,
+                    "total_tokens": 1285,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'MediumBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instanc...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 20.698249999998808,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=36870 name=Bench_Obj_001 parent=-\nrow id=36972 name=Bench_Obj_002 parent=-\nrow id=36812 name=Bench_Obj_003 parent=-\nrow id=36878 name=Bench_Obj_004 parent=-\nrow id=37044 name=Bench_Obj_005 parent=-\nrow id=36976...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 22.040332999999634,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=36870 name=Bench_Obj_001 parent=-\nrow id=36972 name=Bench_Obj_002 parent=-\nrow id=36812 name=Bench_Obj_003 parent=-\nrow id=36878 name=Bench_Obj_004 parent=-\nrow id=37044 name=Bench_Obj_005 parent=-\nrow id=36976...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 20.562250000001114,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=36870 name=Bench_Obj_001 parent=-\nrow id=36972 name=Bench_Obj_002 parent=-\nrow id=36812 name=Bench_Obj_003 parent=-\nrow id=36878 name=Bench_Obj_004 parent=-\nrow id=37044 name=Bench_Obj_005 parent=-\nrow id=36976...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 22.07291600000083,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=36870 name=Bench_Obj_001 parent=-\nrow id=36972 name=Bench_Obj_002 parent=-\nrow id=36812 name=Bench_Obj_003 parent=-\nrow id=36878 name=Bench_Obj_004 parent=-\nrow id=37044 name=Bench_Obj_005 parent=-\nrow id=36976...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 21.729374999999607,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=36870 name=Bench_Obj_001 parent=-\nrow id=36972 name=Bench_Obj_002 parent=-\nrow id=36812 name=Bench_Obj_003 parent=-\nrow id=36878 name=Bench_Obj_004 parent=-\nrow id=37044 name=Bench_Obj_005 parent=-\nrow id=36976...",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "object_create",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 160,
+                "output_tokens": 1395,
+                "total_tokens": 1555,
+                "latency_ms": {
+                  "p50": 47.20783399999995,
+                  "p95": 48.10366700000053,
+                  "max": 48.194667000000635,
+                  "mean": 45.82203360000001
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 115,
+                "output_tokens": 100,
+                "total_tokens": 215,
+                "latency_ms": {
+                  "p50": 47.4695419999982,
+                  "p95": 74.72614180000008,
+                  "max": 81.38087500000069,
+                  "mean": 53.99349199999932
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 92.831541218638,
+                "total_reduction_pct": 86.17363344051448,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -55.34396119946378
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 47.7396670000001,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281687_1' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281687_1\",\"instanceID\":-29054,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 42.95699999999947,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281687_2' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281687_2\",\"instanceID\":-29120,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 43.01099999999991,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281687_3' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281687_3\",\"instanceID\":-29186,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 48.194667000000635,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281687_4' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281687_4\",\"instanceID\":-29252,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 47.20783399999995,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281687_5' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281687_5\",\"instanceID\":-29322,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 81.38087500000069,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281696_1 id=-29654",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 45.59791700000204,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281696_2 id=-29724",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 47.41191699999803,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281696_3 id=-29790",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 48.10720899999765,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281696_4 id=-29856",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 47.4695419999982,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281696_5 id=-29926",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "reparent",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 150,
+                "output_tokens": 5425,
+                "total_tokens": 5575,
+                "latency_ms": {
+                  "p50": 90.90045900000021,
+                  "p95": 90.9896499999995,
+                  "max": 90.99649999999926,
+                  "mean": 90.10690839999995
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 85,
+                "output_tokens": 140,
+                "total_tokens": 225,
+                "latency_ms": {
+                  "p50": 92.24116600000087,
+                  "p95": 96.21547499999963,
+                  "max": 96.92624999999921,
+                  "mean": 92.42194999999995
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 97.41935483870968,
+                "total_reduction_pct": 95.96412556053812,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -5.743318058702453
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 87.81287499999735,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281696_1' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281696_1\", \"instanceID\": -30132, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 89.86245800000248,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281696_2' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281696_2\", \"instanceID\": -30268, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 90.99649999999926,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281696_3' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281696_3\", \"instanceID\": -30404, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 90.96225000000047,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281696_4' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281696_4\", \"instanceID\": -30540, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 90.90045900000021,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281696_5' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281696_5\", \"instanceID\": -30672, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 91.22729199999924,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281697_1 parent=BenchParent_1772281697_1",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 88.34266699999915,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281697_2 parent=BenchParent_1772281697_2",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 92.24116600000087,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281697_3 parent=BenchParent_1772281697_3",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 96.92624999999921,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281697_4 parent=BenchParent_1772281697_4",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 93.37237500000128,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281697_5 parent=BenchParent_1772281697_5",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "asset_search",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 185,
+                "output_tokens": 45180,
+                "total_tokens": 45365,
+                "latency_ms": {
+                  "p50": 174.13162500000112,
+                  "p95": 183.3938413999988,
+                  "max": 184.15020799999837,
+                  "mean": 176.07567499999988
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 135,
+                "output_tokens": 9355,
+                "total_tokens": 9490,
+                "latency_ms": {
+                  "p50": 167.86504199999897,
+                  "p95": 178.81511720000205,
+                  "max": 181.21470900000247,
+                  "mean": 170.30784200000113
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 79.29393536963258,
+                "total_reduction_pct": 79.08078915463463,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 2.4966619189845773
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 174.13162500000112,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 170.523124999999,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 171.20504200000042,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 184.15020799999837,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 180.36837500000047,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 167.84733400000107,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 167.86504199999897,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 165.3953750000028,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 181.21470900000247,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 169.21675000000036,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "batch_ops",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 190,
+                "output_tokens": 4600,
+                "total_tokens": 4790,
+                "latency_ms": {
+                  "p50": 55.03379199999969,
+                  "p95": 55.64064219999878,
+                  "max": 55.68133399999908,
+                  "mean": 54.62716699999959
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 125,
+                "output_tokens": 75,
+                "total_tokens": 200,
+                "latency_ms": {
+                  "p50": 52.413832999999244,
+                  "p95": 53.72900819999913,
+                  "max": 54.04074999999864,
+                  "mean": 52.412474799999835
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 98.36956521739131,
+                "total_reduction_pct": 95.82463465553236,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 3.4356792524578252
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 55.47787499999757,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281699_1' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 53.67724999999979,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281699_2' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 55.03379199999969,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281699_3' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 55.68133399999908,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281699_4' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 53.26558400000181,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281700_5' created successfully in s...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 51.37716699999828,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 52.413832999999244,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 54.04074999999864,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 51.74858300000196,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 52.48204100000109,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            }
+          ],
+          "overall": {
+            "output_reduction_pct_per_scenario": [
+              87.6898481215028,
+              92.831541218638,
+              97.41935483870968,
+              79.29393536963258,
+              98.36956521739131
+            ],
+            "output_reduction_median_pct": 92.831541218638,
+            "output_reduction_range_pct": {
+              "min": 79.29393536963258,
+              "max": 98.36956521739131
+            },
+            "output_reduction_weighted_pct": 83.39034285259724,
+            "total_reduction_weighted_pct": 82.72641657510596,
+            "baseline_total_tokens": 63710,
+            "wrapper_total_tokens": 11005,
+            "baseline_output_tokens": 62855,
+            "wrapper_output_tokens": 10440,
+            "baseline_success_rate": 1.0,
+            "wrapper_success_rate": 1.0
+          }
+        },
+        {
+          "profile": "large",
+          "scene_name": "LargeBench",
+          "scene_path": "Assets/BenchScenes/LargeBench.unity",
+          "scenarios": [
+            {
+              "id": "hierarchy_query",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 170,
+                "output_tokens": 6735,
+                "total_tokens": 6905,
+                "latency_ms": {
+                  "p50": 21.980167000002382,
+                  "p95": 22.847400199999868,
+                  "max": 23.0196669999998,
+                  "mean": 21.882141799999033
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 105,
+                "output_tokens": 770,
+                "total_tokens": 875,
+                "latency_ms": {
+                  "p50": 23.4034579999971,
+                  "p95": 24.01840800000201,
+                  "max": 24.0377080000016,
+                  "mean": 23.055883200001404
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 88.56718634001484,
+                "total_reduction_pct": 87.32802317161477,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -5.125343757939473
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 21.980167000002382,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1347,
+                    "total_tokens": 1381,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'LargeBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instance...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 20.82749999999578,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1347,
+                    "total_tokens": 1381,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'LargeBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instance...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 23.0196669999998,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1347,
+                    "total_tokens": 1381,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'LargeBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instance...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 21.425041999997063,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1347,
+                    "total_tokens": 1381,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'LargeBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instance...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 22.15833300000014,
+                    "success": true,
+                    "input_tokens": 34,
+                    "output_tokens": 1347,
+                    "total_tokens": 1381,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'LargeBench'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":10,\"items\":[{\"name\":\"Bench_Obj_001\",\"instance...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 23.4034579999971,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=39564 name=Bench_Obj_001 parent=-\nrow id=39544 name=Bench_Obj_002 parent=-\nrow id=38834 name=Bench_Obj_003 parent=-\nrow id=38604 name=Bench_Obj_004 parent=-\nrow id=38164 name=Bench_Obj_005 parent=-\nrow id=38624...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 24.0377080000016,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=39564 name=Bench_Obj_001 parent=-\nrow id=39544 name=Bench_Obj_002 parent=-\nrow id=38834 name=Bench_Obj_003 parent=-\nrow id=38604 name=Bench_Obj_004 parent=-\nrow id=38164 name=Bench_Obj_005 parent=-\nrow id=38624...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 22.68329200000352,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=39564 name=Bench_Obj_001 parent=-\nrow id=39544 name=Bench_Obj_002 parent=-\nrow id=38834 name=Bench_Obj_003 parent=-\nrow id=38604 name=Bench_Obj_004 parent=-\nrow id=38164 name=Bench_Obj_005 parent=-\nrow id=38624...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 21.21375000000114,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=39564 name=Bench_Obj_001 parent=-\nrow id=39544 name=Bench_Obj_002 parent=-\nrow id=38834 name=Bench_Obj_003 parent=-\nrow id=38604 name=Bench_Obj_004 parent=-\nrow id=38164 name=Bench_Obj_005 parent=-\nrow id=38624...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "hierarchy_query",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 23.941208000003655,
+                    "success": true,
+                    "input_tokens": 21,
+                    "output_tokens": 154,
+                    "total_tokens": 175,
+                    "stdout_preview": "row id=39564 name=Bench_Obj_001 parent=-\nrow id=39544 name=Bench_Obj_002 parent=-\nrow id=38834 name=Bench_Obj_003 parent=-\nrow id=38604 name=Bench_Obj_004 parent=-\nrow id=38164 name=Bench_Obj_005 parent=-\nrow id=38624...",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "object_create",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 160,
+                "output_tokens": 1395,
+                "total_tokens": 1555,
+                "latency_ms": {
+                  "p50": 46.9236670000015,
+                  "p95": 50.216916600004424,
+                  "max": 50.70037500000524,
+                  "mean": 46.930441600001416
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 115,
+                "output_tokens": 100,
+                "total_tokens": 215,
+                "latency_ms": {
+                  "p50": 49.07125000000434,
+                  "p95": 51.487658600001396,
+                  "max": 51.83154200000217,
+                  "mean": 48.629558400000406
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 92.831541218638,
+                "total_reduction_pct": 86.17363344051448,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -2.5305058255943567
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 50.70037500000524,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281709_1' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281709_1\",\"instanceID\":-33046,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 48.28308300000117,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281709_2' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281709_2\",\"instanceID\":-33112,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 45.47625000000011,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281709_3' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281709_3\",\"instanceID\":-33182,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 43.26883299999906,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281709_4' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281709_4\",\"instanceID\":-33252,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 46.9236670000015,
+                    "success": true,
+                    "input_tokens": 32,
+                    "output_tokens": 279,
+                    "total_tokens": 311,
+                    "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772281709_5' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772281709_5\",\"instanceID\":-33322,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 44.353082999997184,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281710_1 id=-33454",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 51.83154200000217,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281710_2 id=-33520",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 49.07125000000434,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281710_3 id=-33590",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 50.11212499999829,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281710_4 id=-33660",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "object_create",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 47.77979200000004,
+                    "success": true,
+                    "input_tokens": 23,
+                    "output_tokens": 20,
+                    "total_tokens": 43,
+                    "stdout_preview": "ok op=object.create name=BenchObj_1772281710_5 id=-33730",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "reparent",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 150,
+                "output_tokens": 5425,
+                "total_tokens": 5575,
+                "latency_ms": {
+                  "p50": 91.4411249999958,
+                  "p95": 96.72361679999852,
+                  "max": 97.5927499999969,
+                  "mean": 90.7614916
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 85,
+                "output_tokens": 140,
+                "total_tokens": 225,
+                "latency_ms": {
+                  "p50": 92.1725839999965,
+                  "p95": 96.82849999999945,
+                  "max": 97.57199999999955,
+                  "mean": 92.45990019999937
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 97.41935483870968,
+                "total_reduction_pct": 95.96412556053812,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -0.108435978172529
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 91.4411249999958,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281710_1' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281710_1\", \"instanceID\": -33932, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 85.76154100000366,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281710_2' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281710_2\", \"instanceID\": -34068, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 93.24708400000503,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281710_3' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281710_3\", \"instanceID\": -34200, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 97.5927499999969,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281710_4' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281710_4\", \"instanceID\": -34336, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 85.76495799999861,
+                    "success": true,
+                    "input_tokens": 30,
+                    "output_tokens": 1085,
+                    "total_tokens": 1115,
+                    "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772281710_5' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772281710_5\", \"instanceID\": -34472, \"tag\": \"Untagged\", \"layer\": 0, ...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 92.1725839999965,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281710_1 parent=BenchParent_1772281710_1",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 93.85449999999906,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281711_2 parent=BenchParent_1772281711_2",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 97.57199999999955,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281711_3 parent=BenchParent_1772281711_3",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 88.7249170000004,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281711_4 parent=BenchParent_1772281711_4",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "reparent",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 89.97550000000132,
+                    "success": true,
+                    "input_tokens": 17,
+                    "output_tokens": 28,
+                    "total_tokens": 45,
+                    "stdout_preview": "ok op=object.reparent child=BenchChild_1772281711_5 parent=BenchParent_1772281711_5",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "asset_search",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 185,
+                "output_tokens": 45180,
+                "total_tokens": 45365,
+                "latency_ms": {
+                  "p50": 172.08129200000144,
+                  "p95": 185.7111663999973,
+                  "max": 187.94483299999598,
+                  "mean": 174.77454979999862
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 135,
+                "output_tokens": 9355,
+                "total_tokens": 9490,
+                "latency_ms": {
+                  "p50": 167.64891700000106,
+                  "p95": 185.49883340000122,
+                  "max": 189.5678750000016,
+                  "mean": 171.10760000000195
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 79.29393536963258,
+                "total_reduction_pct": 79.08078915463463,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": 0.11433507425113124
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 168.48408299999562,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 168.58604099999752,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 176.77650000000256,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 187.94483299999598,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 172.08129200000144,
+                    "success": true,
+                    "input_tokens": 37,
+                    "output_tokens": 9036,
+                    "total_tokens": 9073,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Found 4357 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4357,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Assets/BenchScripts/Bench_Script_001.cs\",\"guid\":\"611568a3d2bd94...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 163.41387500000337,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 165.6846660000042,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 189.5678750000016,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 169.22266699999966,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "asset_search",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 167.64891700000106,
+                    "success": true,
+                    "input_tokens": 27,
+                    "output_tokens": 1871,
+                    "total_tokens": 1898,
+                    "stdout_preview": "row path=Assets/BenchScripts/Bench_Script_001.cs name=Bench_Script_001\nrow path=Assets/BenchScripts/Bench_Script_002.cs name=Bench_Script_002\nrow path=Assets/BenchScripts/Bench_Script_003.cs name=Bench_Script_003\nrow ...",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            },
+            {
+              "id": "batch_ops",
+              "iterations": 5,
+              "baseline": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 190,
+                "output_tokens": 4600,
+                "total_tokens": 4790,
+                "latency_ms": {
+                  "p50": 53.83470799999657,
+                  "p95": 55.586408199997095,
+                  "max": 55.733124999996164,
+                  "mean": 53.815983199999096
+                },
+                "failures": []
+              },
+              "wrapper": {
+                "runs": 5,
+                "success_count": 5,
+                "success_rate": 1.0,
+                "input_tokens": 125,
+                "output_tokens": 75,
+                "total_tokens": 200,
+                "latency_ms": {
+                  "p50": 52.457707999998604,
+                  "p95": 61.478999999997086,
+                  "max": 62.98837499999621,
+                  "mean": 54.88563319999997
+                },
+                "failures": []
+              },
+              "comparison": {
+                "output_reduction_pct": 98.36956521739131,
+                "total_reduction_pct": 95.82463465553236,
+                "output_ci95_bootstrap": null,
+                "ci_note": "Degenerate: all iterations produced identical token counts. CI requires variance from different scene configurations.",
+                "success_rate_delta_pct_point": 0.0,
+                "latency_p95_delta_pct": -10.600778123311624
+              },
+              "runs": {
+                "baseline": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 52.55891700000603,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281713_1' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 54.99954100000082,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281713_2' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 53.83470799999657,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281713_3' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 55.733124999996164,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281713_4' created successfully in s...",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "baseline",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 51.953624999995895,
+                    "success": true,
+                    "input_tokens": 38,
+                    "output_tokens": 920,
+                    "total_tokens": 958,
+                    "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772281713_5' created successfully in s...",
+                    "stderr_preview": ""
+                  }
+                ],
+                "wrapper": [
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 1,
+                    "returncode": 0,
+                    "latency_ms": 55.44150000000059,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 2,
+                    "returncode": 0,
+                    "latency_ms": 52.457707999998604,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 3,
+                    "returncode": 0,
+                    "latency_ms": 52.446707999997955,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 4,
+                    "returncode": 0,
+                    "latency_ms": 62.98837499999621,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  },
+                  {
+                    "scenario_id": "batch_ops",
+                    "mode": "wrapper",
+                    "iteration": 5,
+                    "returncode": 0,
+                    "latency_ms": 51.093875000006506,
+                    "success": true,
+                    "input_tokens": 25,
+                    "output_tokens": 15,
+                    "total_tokens": 40,
+                    "stdout_preview": "ok op=batch.apply total=3 ok_count=3 fail_count=0",
+                    "stderr_preview": ""
+                  }
+                ]
+              }
+            }
+          ],
+          "overall": {
+            "output_reduction_pct_per_scenario": [
+              88.56718634001484,
+              92.831541218638,
+              97.41935483870968,
+              79.29393536963258,
+              98.36956521739131
+            ],
+            "output_reduction_median_pct": 92.831541218638,
+            "output_reduction_range_pct": {
+              "min": 79.29393536963258,
+              "max": 98.36956521739131
+            },
+            "output_reduction_weighted_pct": 83.5162232572827,
+            "total_reduction_weighted_pct": 82.85558498208444,
+            "baseline_total_tokens": 64190,
+            "wrapper_total_tokens": 11005,
+            "baseline_output_tokens": 63335,
+            "wrapper_output_tokens": 10440,
+            "baseline_success_rate": 1.0,
+            "wrapper_success_rate": 1.0
+          }
+        }
+      ],
+      "cross_scene": {
+        "scenario_output_reduction_pct": {
+          "hierarchy_query": [
+            {
+              "scene_profile": "small",
+              "output_reduction_pct": 83.62573099415205,
+              "total_reduction_pct": 76.09756097560975,
+              "baseline_output_tokens": 855,
+              "wrapper_output_tokens": 140
+            },
+            {
+              "scene_profile": "medium",
+              "output_reduction_pct": 87.6898481215028,
+              "total_reduction_pct": 86.38132295719845,
+              "baseline_output_tokens": 6255,
+              "wrapper_output_tokens": 770
+            },
+            {
+              "scene_profile": "large",
+              "output_reduction_pct": 88.56718634001484,
+              "total_reduction_pct": 87.32802317161477,
+              "baseline_output_tokens": 6735,
+              "wrapper_output_tokens": 770
+            }
+          ],
+          "object_create": [
+            {
+              "scene_profile": "small",
+              "output_reduction_pct": 92.831541218638,
+              "total_reduction_pct": 86.17363344051448,
+              "baseline_output_tokens": 1395,
+              "wrapper_output_tokens": 100
+            },
+            {
+              "scene_profile": "medium",
+              "output_reduction_pct": 92.831541218638,
+              "total_reduction_pct": 86.17363344051448,
+              "baseline_output_tokens": 1395,
+              "wrapper_output_tokens": 100
+            },
+            {
+              "scene_profile": "large",
+              "output_reduction_pct": 92.831541218638,
+              "total_reduction_pct": 86.17363344051448,
+              "baseline_output_tokens": 1395,
+              "wrapper_output_tokens": 100
+            }
+          ],
+          "reparent": [
+            {
+              "scene_profile": "small",
+              "output_reduction_pct": 97.41935483870968,
+              "total_reduction_pct": 95.96412556053812,
+              "baseline_output_tokens": 5425,
+              "wrapper_output_tokens": 140
+            },
+            {
+              "scene_profile": "medium",
+              "output_reduction_pct": 97.41935483870968,
+              "total_reduction_pct": 95.96412556053812,
+              "baseline_output_tokens": 5425,
+              "wrapper_output_tokens": 140
+            },
+            {
+              "scene_profile": "large",
+              "output_reduction_pct": 97.41935483870968,
+              "total_reduction_pct": 95.96412556053812,
+              "baseline_output_tokens": 5425,
+              "wrapper_output_tokens": 140
+            }
+          ],
+          "asset_search": [
+            {
+              "scene_profile": "small",
+              "output_reduction_pct": 79.29393536963258,
+              "total_reduction_pct": 79.08078915463463,
+              "baseline_output_tokens": 45180,
+              "wrapper_output_tokens": 9355
+            },
+            {
+              "scene_profile": "medium",
+              "output_reduction_pct": 79.29393536963258,
+              "total_reduction_pct": 79.08078915463463,
+              "baseline_output_tokens": 45180,
+              "wrapper_output_tokens": 9355
+            },
+            {
+              "scene_profile": "large",
+              "output_reduction_pct": 79.29393536963258,
+              "total_reduction_pct": 79.08078915463463,
+              "baseline_output_tokens": 45180,
+              "wrapper_output_tokens": 9355
+            }
+          ],
+          "batch_ops": [
+            {
+              "scene_profile": "small",
+              "output_reduction_pct": 98.36956521739131,
+              "total_reduction_pct": 95.82463465553236,
+              "baseline_output_tokens": 4600,
+              "wrapper_output_tokens": 75
+            },
+            {
+              "scene_profile": "medium",
+              "output_reduction_pct": 98.36956521739131,
+              "total_reduction_pct": 95.82463465553236,
+              "baseline_output_tokens": 4600,
+              "wrapper_output_tokens": 75
+            },
+            {
+              "scene_profile": "large",
+              "output_reduction_pct": 98.36956521739131,
+              "total_reduction_pct": 95.82463465553236,
+              "baseline_output_tokens": 4600,
+              "wrapper_output_tokens": 75
+            }
+          ]
+        }
+      },
+      "overall": {
+        "output_reduction_pct_per_scenario": [
+          83.62573099415205,
+          92.831541218638,
+          97.41935483870968,
+          79.29393536963258,
+          98.36956521739131,
+          87.6898481215028,
+          92.831541218638,
+          97.41935483870968,
+          79.29393536963258,
+          98.36956521739131,
+          88.56718634001484,
+          92.831541218638,
+          97.41935483870968,
+          79.29393536963258,
+          98.36956521739131
+        ],
+        "output_reduction_median_pct": 92.831541218638,
+        "output_reduction_range_pct": {
+          "min": 79.29393536963258,
+          "max": 98.36956521739131
+        },
+        "output_reduction_weighted_pct": 83.28840970350404,
+        "total_reduction_weighted_pct": 82.60834541646528,
+        "baseline_total_tokens": 186210,
+        "wrapper_total_tokens": 32385,
+        "baseline_output_tokens": 183645,
+        "wrapper_output_tokens": 30690,
+        "baseline_success_rate": 1.0,
+        "wrapper_success_rate": 1.0
+      }
+    }
+  ],
+  "cross_run": {
+    "output_reduction_median_per_run": [
+      92.831541218638
+    ],
+    "output_reduction_weighted_per_run": [
+      83.28840970350404
+    ],
+    "median_of_medians": 92.831541218638,
+    "stdev_medians": 0.0
+  },
+  "cross_scene": {
+    "scenario_output_reduction_pct": {
+      "hierarchy_query": {
+        "small": {
+          "values": [
+            83.62573099415205
+          ],
+          "median": 83.62573099415205
+        },
+        "medium": {
+          "values": [
+            87.6898481215028
+          ],
+          "median": 87.6898481215028
+        },
+        "large": {
+          "values": [
+            88.56718634001484
+          ],
+          "median": 88.56718634001484
+        }
+      },
+      "object_create": {
+        "small": {
+          "values": [
+            92.831541218638
+          ],
+          "median": 92.831541218638
+        },
+        "medium": {
+          "values": [
+            92.831541218638
+          ],
+          "median": 92.831541218638
+        },
+        "large": {
+          "values": [
+            92.831541218638
+          ],
+          "median": 92.831541218638
+        }
+      },
+      "reparent": {
+        "small": {
+          "values": [
+            97.41935483870968
+          ],
+          "median": 97.41935483870968
+        },
+        "medium": {
+          "values": [
+            97.41935483870968
+          ],
+          "median": 97.41935483870968
+        },
+        "large": {
+          "values": [
+            97.41935483870968
+          ],
+          "median": 97.41935483870968
+        }
+      },
+      "asset_search": {
+        "small": {
+          "values": [
+            79.29393536963258
+          ],
+          "median": 79.29393536963258
+        },
+        "medium": {
+          "values": [
+            79.29393536963258
+          ],
+          "median": 79.29393536963258
+        },
+        "large": {
+          "values": [
+            79.29393536963258
+          ],
+          "median": 79.29393536963258
+        }
+      },
+      "batch_ops": {
+        "small": {
+          "values": [
+            98.36956521739131
+          ],
+          "median": 98.36956521739131
+        },
+        "medium": {
+          "values": [
+            98.36956521739131
+          ],
+          "median": 98.36956521739131
+        },
+        "large": {
+          "values": [
+            98.36956521739131
+          ],
+          "median": 98.36956521739131
+        }
+      }
+    }
+  }
+}

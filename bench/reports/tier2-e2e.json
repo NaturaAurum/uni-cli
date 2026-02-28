@@ -1,0 +1,168 @@
+{
+  "name": "tier2-e2e-agent-benchmark",
+  "generated_at_utc": "2026-02-28T12:29:27.048961+00:00",
+  "url": "http://127.0.0.1:8080/mcp",
+  "unity_instance_selector": "uni-cli",
+  "resolved_instances": [
+    "uni-cli@eed8461035005b2a"
+  ],
+  "token_counter_mode": "tiktoken:o200k_base",
+  "mode": "both",
+  "repetitions": 2,
+  "tasks": [
+    {
+      "id": "create_tagged_cube",
+      "name": "Create Tagged Cube",
+      "category": "write-heavy",
+      "baseline": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 14236,
+        "tool_response_tokens": 290,
+        "rounds": 2,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 5231.361499999999,
+        "system_prompt_tokens": 37,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [
+          "manage_editor",
+          "manage_gameobject"
+        ],
+        "errors": [
+          "tools_call_isError:manage_components: {\"content\": [{\"type\": \"text\", \"text\": \"2 validation errors for call[manage_components]\\ncomponent_type\\n  Missing required argument [type=missing_argument, input_value={'action': 'add', 'target...perties': {'mass': 2.0}}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\ncomponent_name\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Rigidbody', input_type=str]\\n    For further information visit https://errors.p",
+          "tools_call_isError:manage_components: {\"content\": [{\"type\": \"text\", \"text\": \"2 validation errors for call[manage_components]\\ncomponent_type\\n  Missing required argument [type=missing_argument, input_value={'action': 'add', 'target...perties': {'mass': 2.0}}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\ncomponent_name\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Rigidbody', input_type=str]\\n    For further information visit https://errors.p"
+        ]
+      },
+      "wrapper": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 13987,
+        "tool_response_tokens": 40,
+        "rounds": 2,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 465.0914374999999,
+        "system_prompt_tokens": 37,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [
+          "manage_editor",
+          "manage_gameobject"
+        ],
+        "errors": [
+          "tools_call_isError:manage_components: {\"content\": [{\"type\": \"text\", \"text\": \"2 validation errors for call[manage_components]\\ncomponent_type\\n  Missing required argument [type=missing_argument, input_value={'action': 'add', 'target...perties': {'mass': 2.0}}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\ncomponent_name\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Rigidbody', input_type=str]\\n    For further information visit https://errors.p",
+          "tools_call_isError:manage_components: {\"content\": [{\"type\": \"text\", \"text\": \"2 validation errors for call[manage_components]\\ncomponent_type\\n  Missing required argument [type=missing_argument, input_value={'action': 'add', 'target...perties': {'mass': 2.0}}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\ncomponent_name\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Rigidbody', input_type=str]\\n    For further information visit https://errors.p"
+        ]
+      },
+      "comparison": {
+        "token_reduction_pct": 1.7490868221410507,
+        "round_increase": 0,
+        "followup_overhead_tokens": 0
+      }
+    },
+    {
+      "id": "hierarchy_audit",
+      "name": "Hierarchy Audit",
+      "category": "read-heavy",
+      "baseline": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 14932,
+        "tool_response_tokens": 1014,
+        "rounds": 1,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 403.15770850000024,
+        "system_prompt_tokens": 37,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [
+          "manage_scene"
+        ],
+        "errors": [
+          "tools_call_isError:find_gameobjects: {\"content\": [{\"type\": \"text\", \"text\": \"5 validation errors for call[find_gameobjects]\\nsearch_term\\n  Missing required argument [type=missing_argument, input_value={'action': 'children', 's...imit': 500, 'cursor': 0}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\nsearch_method\\n  Input should be 'by_name', 'by_tag', 'by_layer', 'by_component', 'by_path' or 'by_id' [type=literal_error, input_value='by_parent_id', input_type=str]\\n    For ",
+          "tools_call_isError:find_gameobjects: {\"content\": [{\"type\": \"text\", \"text\": \"5 validation errors for call[find_gameobjects]\\nsearch_term\\n  Missing required argument [type=missing_argument, input_value={'action': 'children', 's...imit': 500, 'cursor': 0}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\nsearch_method\\n  Input should be 'by_name', 'by_tag', 'by_layer', 'by_component', 'by_path' or 'by_id' [type=literal_error, input_value='by_parent_id', input_type=str]\\n    For "
+        ]
+      },
+      "wrapper": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 14118,
+        "tool_response_tokens": 200,
+        "rounds": 1,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 410.1966245000002,
+        "system_prompt_tokens": 37,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [
+          "manage_scene"
+        ],
+        "errors": [
+          "tools_call_isError:find_gameobjects: {\"content\": [{\"type\": \"text\", \"text\": \"5 validation errors for call[find_gameobjects]\\nsearch_term\\n  Missing required argument [type=missing_argument, input_value={'action': 'children', 's...imit': 500, 'cursor': 0}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\nsearch_method\\n  Input should be 'by_name', 'by_tag', 'by_layer', 'by_component', 'by_path' or 'by_id' [type=literal_error, input_value='by_parent_id', input_type=str]\\n    For ",
+          "tools_call_isError:find_gameobjects: {\"content\": [{\"type\": \"text\", \"text\": \"5 validation errors for call[find_gameobjects]\\nsearch_term\\n  Missing required argument [type=missing_argument, input_value={'action': 'children', 's...imit': 500, 'cursor': 0}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_argument\\nsearch_method\\n  Input should be 'by_name', 'by_tag', 'by_layer', 'by_component', 'by_path' or 'by_id' [type=literal_error, input_value='by_parent_id', input_type=str]\\n    For "
+        ]
+      },
+      "comparison": {
+        "token_reduction_pct": 5.451379587463166,
+        "round_increase": 0,
+        "followup_overhead_tokens": 0
+      }
+    },
+    {
+      "id": "material_swap",
+      "name": "Material Swap",
+      "category": "mixed",
+      "baseline": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 13886,
+        "tool_response_tokens": 0,
+        "rounds": 0,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 19.105999999999845,
+        "system_prompt_tokens": 35,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [],
+        "errors": [
+          "tools_call_isError:manage_asset: {\"content\": [{\"type\": \"text\", \"text\": \"1 validation error for call[manage_asset]\\nquery\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Bench_Glow', input_type=str]\\n    For further information visit https://errors.pydantic.dev/2.12/v/unexpected_keyword_argument\"}], \"isError\": true}",
+          "tools_call_isError:manage_asset: {\"content\": [{\"type\": \"text\", \"text\": \"1 validation error for call[manage_asset]\\nquery\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Bench_Glow', input_type=str]\\n    For further information visit https://errors.pydantic.dev/2.12/v/unexpected_keyword_argument\"}], \"isError\": true}"
+        ]
+      },
+      "wrapper": {
+        "runs": 2,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "total_tokens": 13886,
+        "tool_response_tokens": 0,
+        "rounds": 0,
+        "followup_calls": 0,
+        "followup_overhead_tokens": 0,
+        "wall_clock_ms": 20.3478334999998,
+        "system_prompt_tokens": 35,
+        "tool_schema_tokens": 13805,
+        "unique_tools": [],
+        "errors": [
+          "tools_call_isError:manage_asset: {\"content\": [{\"type\": \"text\", \"text\": \"1 validation error for call[manage_asset]\\nquery\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Bench_Glow', input_type=str]\\n    For further information visit https://errors.pydantic.dev/2.12/v/unexpected_keyword_argument\"}], \"isError\": true}",
+          "tools_call_isError:manage_asset: {\"content\": [{\"type\": \"text\", \"text\": \"1 validation error for call[manage_asset]\\nquery\\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='Bench_Glow', input_type=str]\\n    For further information visit https://errors.pydantic.dev/2.12/v/unexpected_keyword_argument\"}], \"isError\": true}"
+        ]
+      },
+      "comparison": {
+        "token_reduction_pct": 0.0,
+        "round_increase": 0,
+        "followup_overhead_tokens": 0
+      }
+    }
+  ],
+  "summary": {
+    "macro_avg_token_reduction_pct": 2.4001554698680723,
+    "tasks_where_wrapper_hurts": [],
+    "total_baseline_tokens": 43054,
+    "total_wrapper_tokens": 41991
+  }
+}

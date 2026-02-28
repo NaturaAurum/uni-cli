@@ -1,0 +1,933 @@
+{
+  "name": "real-unity-benchmark",
+  "description": "Real benchmark against running Unity MCP HTTP server",
+  "generated_at_utc": "2026-02-27T08:27:21.194090+00:00",
+  "scenario_file": "bench/scenarios.real.json",
+  "token_counter_mode": "heuristic_char4",
+  "defaults": {
+    "iterations": 5,
+    "warmup": 1
+  },
+  "scenarios": [
+    {
+      "id": "hierarchy_query",
+      "description": "Hierarchy list query",
+      "iterations": 5,
+      "baseline": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 225,
+        "output_tokens": 9175,
+        "total_tokens": 9400,
+        "latency_ms": {
+          "p50": 83.88241700000002,
+          "p95": 85.31621639999999,
+          "max": 85.455458
+        },
+        "failures": []
+      },
+      "wrapper": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 110,
+        "output_tokens": 50,
+        "total_tokens": 160,
+        "latency_ms": {
+          "p50": 82.09504099999998,
+          "p95": 88.25201699999998,
+          "max": 89.02604199999998
+        },
+        "failures": []
+      },
+      "comparison": {
+        "token_reduction_pct": 98.29787234042553,
+        "success_rate_delta_pct_point": 0.0,
+        "latency_p95_delta_pct": -3.441081571451396
+      },
+      "runs": {
+        "baseline": [
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "baseline",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 85.455458,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 1835,
+            "total_tokens": 1880,
+            "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SampleScene'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":17,\"items\":[{\"name\":\"Main Camera\",\"instanceI...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "baseline",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 83.88241700000002,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 1835,
+            "total_tokens": 1880,
+            "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SampleScene'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":17,\"items\":[{\"name\":\"Main Camera\",\"instanceI...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "baseline",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 84.75924999999995,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 1835,
+            "total_tokens": 1880,
+            "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SampleScene'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":17,\"items\":[{\"name\":\"Main Camera\",\"instanceI...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "baseline",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 78.5865,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 1835,
+            "total_tokens": 1880,
+            "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SampleScene'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":17,\"items\":[{\"name\":\"Main Camera\",\"instanceI...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "baseline",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 80.20108399999998,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 1835,
+            "total_tokens": 1880,
+            "stdout_preview": "{\"success\":true,\"message\":\"Retrieved hierarchy page for scene 'SampleScene'.\",\"data\":{\"scope\":\"roots\",\"cursor\":0,\"pageSize\":120,\"next_cursor\":null,\"truncated\":false,\"total\":17,\"items\":[{\"name\":\"Main Camera\",\"instanceI...",
+            "stderr_preview": ""
+          }
+        ],
+        "wrapper": [
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "wrapper",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 76.286458,
+            "success": true,
+            "input_tokens": 22,
+            "output_tokens": 10,
+            "total_tokens": 32,
+            "stdout_preview": "ok op=hierarchy.query count=17 next=-\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "wrapper",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 81.54312500000005,
+            "success": true,
+            "input_tokens": 22,
+            "output_tokens": 10,
+            "total_tokens": 32,
+            "stdout_preview": "ok op=hierarchy.query count=17 next=-\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "wrapper",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 85.15591700000003,
+            "success": true,
+            "input_tokens": 22,
+            "output_tokens": 10,
+            "total_tokens": 32,
+            "stdout_preview": "ok op=hierarchy.query count=17 next=-\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "wrapper",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 89.02604199999998,
+            "success": true,
+            "input_tokens": 22,
+            "output_tokens": 10,
+            "total_tokens": 32,
+            "stdout_preview": "ok op=hierarchy.query count=17 next=-\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "hierarchy_query",
+            "mode": "wrapper",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 82.09504099999998,
+            "success": true,
+            "input_tokens": 22,
+            "output_tokens": 10,
+            "total_tokens": 32,
+            "stdout_preview": "ok op=hierarchy.query count=17 next=-\n",
+            "stderr_preview": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "object_create",
+      "description": "Create object",
+      "iterations": 5,
+      "baseline": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 215,
+        "output_tokens": 925,
+        "total_tokens": 1140,
+        "latency_ms": {
+          "p50": 78.83754099999996,
+          "p95": 81.7006256,
+          "max": 82.25783399999997
+        },
+        "failures": []
+      },
+      "wrapper": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 105,
+        "output_tokens": 75,
+        "total_tokens": 180,
+        "latency_ms": {
+          "p50": 78.803167,
+          "p95": 79.77413360000006,
+          "max": 79.96016700000008
+        },
+        "failures": []
+      },
+      "comparison": {
+        "token_reduction_pct": 84.21052631578947,
+        "success_rate_delta_pct_point": 0.0,
+        "latency_p95_delta_pct": 2.357989288150493
+      },
+      "runs": {
+        "baseline": [
+          {
+            "scenario_id": "object_create",
+            "mode": "baseline",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 78.83754099999996,
+            "success": true,
+            "input_tokens": 43,
+            "output_tokens": 185,
+            "total_tokens": 228,
+            "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772180842_1' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772180842_1\",\"instanceID\":-16108,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "baseline",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 82.25783399999997,
+            "success": true,
+            "input_tokens": 43,
+            "output_tokens": 185,
+            "total_tokens": 228,
+            "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772180842_2' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772180842_2\",\"instanceID\":-16174,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "baseline",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 77.4802910000001,
+            "success": true,
+            "input_tokens": 43,
+            "output_tokens": 185,
+            "total_tokens": 228,
+            "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772180842_3' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772180842_3\",\"instanceID\":-16252,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "baseline",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 79.4717920000001,
+            "success": true,
+            "input_tokens": 43,
+            "output_tokens": 185,
+            "total_tokens": 228,
+            "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772180842_4' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772180842_4\",\"instanceID\":-16318,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "baseline",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 78.2844159999998,
+            "success": true,
+            "input_tokens": 43,
+            "output_tokens": 185,
+            "total_tokens": 228,
+            "stdout_preview": "{\"success\":true,\"message\":\"GameObject 'BenchObj_1772180842_5' created successfully in scene.\",\"data\":{\"name\":\"BenchObj_1772180842_5\",\"instanceID\":-16396,\"tag\":\"Untagged\",\"layer\":0,\"activeSelf\":true,\"activeInHierarchy\"...",
+            "stderr_preview": ""
+          }
+        ],
+        "wrapper": [
+          {
+            "scenario_id": "object_create",
+            "mode": "wrapper",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 79.96016700000008,
+            "success": true,
+            "input_tokens": 21,
+            "output_tokens": 15,
+            "total_tokens": 36,
+            "stdout_preview": "ok op=object.create name=BenchObj_1772180842_1 id=-16540\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "wrapper",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 79.02999999999993,
+            "success": true,
+            "input_tokens": 21,
+            "output_tokens": 15,
+            "total_tokens": 36,
+            "stdout_preview": "ok op=object.create name=BenchObj_1772180842_2 id=-16606\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "wrapper",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 78.803167,
+            "success": true,
+            "input_tokens": 21,
+            "output_tokens": 15,
+            "total_tokens": 36,
+            "stdout_preview": "ok op=object.create name=BenchObj_1772180842_3 id=-16684\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "wrapper",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 77.98649999999996,
+            "success": true,
+            "input_tokens": 21,
+            "output_tokens": 15,
+            "total_tokens": 36,
+            "stdout_preview": "ok op=object.create name=BenchObj_1772180843_4 id=-16750\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "object_create",
+            "mode": "wrapper",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 77.69641599999999,
+            "success": true,
+            "input_tokens": 21,
+            "output_tokens": 15,
+            "total_tokens": 36,
+            "stdout_preview": "ok op=object.create name=BenchObj_1772180843_5 id=-16828\n",
+            "stderr_preview": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "reparent",
+      "description": "Reparent object",
+      "iterations": 5,
+      "baseline": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 225,
+        "output_tokens": 3165,
+        "total_tokens": 3390,
+        "latency_ms": {
+          "p50": 128.37320899999983,
+          "p95": 131.26703399999985,
+          "max": 131.33208399999984
+        },
+        "failures": []
+      },
+      "wrapper": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 100,
+        "output_tokens": 105,
+        "total_tokens": 205,
+        "latency_ms": {
+          "p50": 128.65545800000032,
+          "p95": 129.48059999999975,
+          "max": 129.65674999999965
+        },
+        "failures": []
+      },
+      "comparison": {
+        "token_reduction_pct": 93.952802359882,
+        "success_rate_delta_pct_point": 0.0,
+        "latency_p95_delta_pct": 1.3609159478686028
+      },
+      "runs": {
+        "baseline": [
+          {
+            "scenario_id": "reparent",
+            "mode": "baseline",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 128.37320899999983,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 633,
+            "total_tokens": 678,
+            "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772180843_1' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772180843_1\", \"instanceID\": -17038, \"tag\": \"Untagged\", \"layer\": 0, ...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "baseline",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 131.0068339999999,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 633,
+            "total_tokens": 678,
+            "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772180843_2' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772180843_2\", \"instanceID\": -17170, \"tag\": \"Untagged\", \"layer\": 0, ...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "baseline",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 127.03741599999985,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 633,
+            "total_tokens": 678,
+            "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772180843_3' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772180843_3\", \"instanceID\": -17314, \"tag\": \"Untagged\", \"layer\": 0, ...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "baseline",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 131.33208399999984,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 633,
+            "total_tokens": 678,
+            "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772180843_4' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772180843_4\", \"instanceID\": -17446, \"tag\": \"Untagged\", \"layer\": 0, ...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "baseline",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 128.25841700000007,
+            "success": true,
+            "input_tokens": 45,
+            "output_tokens": 633,
+            "total_tokens": 678,
+            "stdout_preview": "{\"create_parent\": {\"success\": true, \"message\": \"GameObject 'BenchParent_1772180843_5' created successfully in scene.\", \"data\": {\"name\": \"BenchParent_1772180843_5\", \"instanceID\": -17590, \"tag\": \"Untagged\", \"layer\": 0, ...",
+            "stderr_preview": ""
+          }
+        ],
+        "wrapper": [
+          {
+            "scenario_id": "reparent",
+            "mode": "wrapper",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 129.65674999999965,
+            "success": true,
+            "input_tokens": 20,
+            "output_tokens": 21,
+            "total_tokens": 41,
+            "stdout_preview": "ok op=object.reparent child=BenchChild_1772180844_1 parent=BenchParent_1772180844_1\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "wrapper",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 124.17958399999974,
+            "success": true,
+            "input_tokens": 20,
+            "output_tokens": 21,
+            "total_tokens": 41,
+            "stdout_preview": "ok op=object.reparent child=BenchChild_1772180844_2 parent=BenchParent_1772180844_2\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "wrapper",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 128.77600000000024,
+            "success": true,
+            "input_tokens": 20,
+            "output_tokens": 21,
+            "total_tokens": 41,
+            "stdout_preview": "ok op=object.reparent child=BenchChild_1772180844_3 parent=BenchParent_1772180844_3\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "wrapper",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 124.23424999999978,
+            "success": true,
+            "input_tokens": 20,
+            "output_tokens": 21,
+            "total_tokens": 41,
+            "stdout_preview": "ok op=object.reparent child=BenchChild_1772180844_4 parent=BenchParent_1772180844_4\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "reparent",
+            "mode": "wrapper",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 128.65545800000032,
+            "success": true,
+            "input_tokens": 20,
+            "output_tokens": 21,
+            "total_tokens": 41,
+            "stdout_preview": "ok op=object.reparent child=BenchChild_1772180844_5 parent=BenchParent_1772180844_5\n",
+            "stderr_preview": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "asset_search",
+      "description": "Asset search with pagination",
+      "iterations": 5,
+      "baseline": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 250,
+        "output_tokens": 36685,
+        "total_tokens": 36935,
+        "latency_ms": {
+          "p50": 230.22920799999991,
+          "p95": 248.9305334000001,
+          "max": 250.90262500000017
+        },
+        "failures": []
+      },
+      "wrapper": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 125,
+        "output_tokens": 45,
+        "total_tokens": 170,
+        "latency_ms": {
+          "p50": 228.20716699999988,
+          "p95": 244.52969180000056,
+          "max": 247.92700000000067
+        },
+        "failures": []
+      },
+      "comparison": {
+        "token_reduction_pct": 99.53973196155408,
+        "success_rate_delta_pct_point": 0.0,
+        "latency_p95_delta_pct": 1.7678994777743575
+      },
+      "runs": {
+        "baseline": [
+          {
+            "scenario_id": "asset_search",
+            "mode": "baseline",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 250.90262500000017,
+            "success": true,
+            "input_tokens": 50,
+            "output_tokens": 7337,
+            "total_tokens": 7387,
+            "stdout_preview": "{\"success\":true,\"message\":\"Found 4305 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4305,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Packages/com.unity.2d.animation/Editor/Analytics.cs\",\"guid\":\"78...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "baseline",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 241.0421669999998,
+            "success": true,
+            "input_tokens": 50,
+            "output_tokens": 7337,
+            "total_tokens": 7387,
+            "stdout_preview": "{\"success\":true,\"message\":\"Found 4305 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4305,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Packages/com.unity.2d.animation/Editor/Analytics.cs\",\"guid\":\"78...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "baseline",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 230.22920799999991,
+            "success": true,
+            "input_tokens": 50,
+            "output_tokens": 7337,
+            "total_tokens": 7387,
+            "stdout_preview": "{\"success\":true,\"message\":\"Found 4305 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4305,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Packages/com.unity.2d.animation/Editor/Analytics.cs\",\"guid\":\"78...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "baseline",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 227.1375840000003,
+            "success": true,
+            "input_tokens": 50,
+            "output_tokens": 7337,
+            "total_tokens": 7387,
+            "stdout_preview": "{\"success\":true,\"message\":\"Found 4305 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4305,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Packages/com.unity.2d.animation/Editor/Analytics.cs\",\"guid\":\"78...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "baseline",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 226.2364579999998,
+            "success": true,
+            "input_tokens": 50,
+            "output_tokens": 7337,
+            "total_tokens": 7387,
+            "stdout_preview": "{\"success\":true,\"message\":\"Found 4305 asset(s). Returning page 1 (80 assets).\",\"data\":{\"totalAssets\":4305,\"pageSize\":80,\"pageNumber\":1,\"assets\":[{\"path\":\"Packages/com.unity.2d.animation/Editor/Analytics.cs\",\"guid\":\"78...",
+            "stderr_preview": ""
+          }
+        ],
+        "wrapper": [
+          {
+            "scenario_id": "asset_search",
+            "mode": "wrapper",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 230.94045900000015,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 9,
+            "total_tokens": 34,
+            "stdout_preview": "ok op=asset.search count=80 page=1\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "wrapper",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 247.92700000000067,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 9,
+            "total_tokens": 34,
+            "stdout_preview": "ok op=asset.search count=80 page=1\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "wrapper",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 227.52025000000043,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 9,
+            "total_tokens": 34,
+            "stdout_preview": "ok op=asset.search count=80 page=1\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "wrapper",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 226.52404100000024,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 9,
+            "total_tokens": 34,
+            "stdout_preview": "ok op=asset.search count=80 page=1\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "asset_search",
+            "mode": "wrapper",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 228.20716699999988,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 9,
+            "total_tokens": 34,
+            "stdout_preview": "ok op=asset.search count=80 page=1\n",
+            "stderr_preview": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "batch_ops",
+      "description": "Batch create/move operation",
+      "iterations": 5,
+      "baseline": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 270,
+        "output_tokens": 3200,
+        "total_tokens": 3470,
+        "latency_ms": {
+          "p50": 68.5889580000003,
+          "p95": 71.32896680000016,
+          "max": 71.97112500000014
+        },
+        "failures": []
+      },
+      "wrapper": {
+        "runs": 5,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "input_tokens": 125,
+        "output_tokens": 50,
+        "total_tokens": 175,
+        "latency_ms": {
+          "p50": 67.69366700000035,
+          "p95": 70.4472832000004,
+          "max": 70.99758300000047
+        },
+        "failures": []
+      },
+      "comparison": {
+        "token_reduction_pct": 94.95677233429394,
+        "success_rate_delta_pct_point": 0.0,
+        "latency_p95_delta_pct": 1.236080711041168
+      },
+      "runs": {
+        "baseline": [
+          {
+            "scenario_id": "batch_ops",
+            "mode": "baseline",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 71.97112500000014,
+            "success": true,
+            "input_tokens": 54,
+            "output_tokens": 640,
+            "total_tokens": 694,
+            "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772180847_1' created successfully in s...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "baseline",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 68.08954099999997,
+            "success": true,
+            "input_tokens": 54,
+            "output_tokens": 640,
+            "total_tokens": 694,
+            "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772180847_2' created successfully in s...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "baseline",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 68.5889580000003,
+            "success": true,
+            "input_tokens": 54,
+            "output_tokens": 640,
+            "total_tokens": 694,
+            "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772180847_3' created successfully in s...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "baseline",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 68.76033400000026,
+            "success": true,
+            "input_tokens": 54,
+            "output_tokens": 640,
+            "total_tokens": 694,
+            "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772180847_4' created successfully in s...",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "baseline",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 68.2529589999996,
+            "success": true,
+            "input_tokens": 54,
+            "output_tokens": 640,
+            "total_tokens": 694,
+            "stdout_preview": "{\"success\":true,\"message\":\"Batch execution completed.\",\"data\":{\"results\":[{\"tool\":\"manage_gameobject\",\"callSucceeded\":true,\"result\":{\"success\":true,\"message\":\"GameObject 'BatchA_1772180847_5' created successfully in s...",
+            "stderr_preview": ""
+          }
+        ],
+        "wrapper": [
+          {
+            "scenario_id": "batch_ops",
+            "mode": "wrapper",
+            "iteration": 1,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 67.63062500000049,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 10,
+            "total_tokens": 35,
+            "stdout_preview": "ok op=batch.apply total=3 fail_count=0\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "wrapper",
+            "iteration": 2,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 68.2460840000001,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 10,
+            "total_tokens": 35,
+            "stdout_preview": "ok op=batch.apply total=3 fail_count=0\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "wrapper",
+            "iteration": 3,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 70.99758300000047,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 10,
+            "total_tokens": 35,
+            "stdout_preview": "ok op=batch.apply total=3 fail_count=0\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "wrapper",
+            "iteration": 4,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 67.50524999999996,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 10,
+            "total_tokens": 35,
+            "stdout_preview": "ok op=batch.apply total=3 fail_count=0\n",
+            "stderr_preview": ""
+          },
+          {
+            "scenario_id": "batch_ops",
+            "mode": "wrapper",
+            "iteration": 5,
+            "returncode": 0,
+            "timed_out": false,
+            "latency_ms": 67.69366700000035,
+            "success": true,
+            "input_tokens": 25,
+            "output_tokens": 10,
+            "total_tokens": 35,
+            "stdout_preview": "ok op=batch.apply total=3 fail_count=0\n",
+            "stderr_preview": ""
+          }
+        ]
+      }
+    }
+  ]
+}

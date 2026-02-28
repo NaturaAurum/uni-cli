@@ -1,0 +1,51 @@
+{
+  "token_counter": "tiktoken:o200k_base",
+  "mcp": {
+    "tool_count": 29,
+    "resource_count": 20,
+    "tool_schema_tokens": 5800,
+    "resource_schema_tokens": 1600,
+    "total_schema_tokens": 7400,
+    "is_mock": true
+  },
+  "cli": {
+    "command_count": 25,
+    "help_text_tokens": 480
+  },
+  "comparison": {
+    "schema_overhead_delta": 6920,
+    "schema_overhead_ratio": 15.416666666666666
+  },
+  "amortized": {
+    "per_1_ops": {
+      "mcp_per_op": 7400.0,
+      "cli_per_op": 480.0,
+      "delta_per_op": 6920.0
+    },
+    "per_5_ops": {
+      "mcp_per_op": 1480.0,
+      "cli_per_op": 96.0,
+      "delta_per_op": 1384.0
+    },
+    "per_10_ops": {
+      "mcp_per_op": 740.0,
+      "cli_per_op": 48.0,
+      "delta_per_op": 692.0
+    },
+    "per_25_ops": {
+      "mcp_per_op": 296.0,
+      "cli_per_op": 19.2,
+      "delta_per_op": 276.8
+    },
+    "per_50_ops": {
+      "mcp_per_op": 148.0,
+      "cli_per_op": 9.6,
+      "delta_per_op": 138.4
+    },
+    "per_100_ops": {
+      "mcp_per_op": 74.0,
+      "cli_per_op": 4.8,
+      "delta_per_op": 69.2
+    }
+  }
+}
