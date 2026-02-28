@@ -1,0 +1,81 @@
+{
+  "name": "mock-unity-benchmark",
+  "description": "PoC benchmark using mock Unity responses",
+  "defaults": {
+    "iterations": 12,
+    "warmup": 2
+  },
+  "scenarios": [
+    {
+      "id": "hierarchy_query",
+      "description": "Hierarchy list query",
+      "baseline": {
+        "command": "python3 bench/mocks/mock_unity.py --mode baseline --scenario hierarchy_query --iteration {iteration}",
+        "request_text": "{\"tool\":\"hierarchy.list\",\"args\":{\"path\":\"/\",\"depth\":3,\"includeComponents\":true}}",
+        "success_regex": "\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "python3 bench/mocks/mock_unity.py --mode wrapper --scenario hierarchy_query --iteration {iteration}",
+        "request_text": "uni-cli hierarchy ls --path / --depth 3 --fields id,name,parentId --limit 100 --cursor 0",
+        "success_regex": "^ok\\s"
+      }
+    },
+    {
+      "id": "object_create",
+      "description": "Create object",
+      "baseline": {
+        "command": "python3 bench/mocks/mock_unity.py --mode baseline --scenario object_create --iteration {iteration}",
+        "request_text": "{\"tool\":\"object.create\",\"args\":{\"name\":\"BenchCube\",\"parentId\":\"go_0000\",\"components\":[\"MeshFilter\",\"MeshRenderer\"]}}",
+        "success_regex": "\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "python3 bench/mocks/mock_unity.py --mode wrapper --scenario object_create --iteration {iteration}",
+        "request_text": "uni-cli object create --name BenchCube --parent go_0000 --preset primitive_cube",
+        "success_regex": "^ok\\s"
+      }
+    },
+    {
+      "id": "reparent",
+      "description": "Reparent object",
+      "baseline": {
+        "command": "python3 bench/mocks/mock_unity.py --mode baseline --scenario reparent --iteration {iteration}",
+        "request_text": "{\"tool\":\"object.reparent\",\"args\":{\"targetId\":\"go_0012\",\"newParentId\":\"go_0003\",\"worldPositionStays\":true}}",
+        "success_regex": "\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "python3 bench/mocks/mock_unity.py --mode wrapper --scenario reparent --iteration {iteration}",
+        "request_text": "uni-cli object reparent --id go_0012 --parent go_0003 --world-pos-stays 1",
+        "success_regex": "^ok\\s"
+      }
+    },
+    {
+      "id": "asset_search",
+      "description": "Asset search with pagination",
+      "baseline": {
+        "command": "python3 bench/mocks/mock_unity.py --mode baseline --scenario asset_search --iteration {iteration}",
+        "request_text": "{\"tool\":\"asset.search\",\"args\":{\"query\":\"t:Texture\",\"limit\":50,\"cursor\":\"0\",\"includeImporter\":true}}",
+        "success_regex": "\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "python3 bench/mocks/mock_unity.py --mode wrapper --scenario asset_search --iteration {iteration}",
+        "request_text": "uni-cli asset search --query \"t:Texture\" --fields guid,path --limit 50 --cursor 0",
+        "success_regex": "^ok\\s"
+      }
+    },
+    {
+      "id": "batch_ops",
+      "description": "Batch create/move operation",
+      "baseline": {
+        "command": "python3 bench/mocks/mock_unity.py --mode baseline --scenario batch_ops --iteration {iteration}",
+        "request_text": "{\"tool\":\"batch.apply\",\"args\":{\"ops\":[{\"op\":\"create\",\"count\":40},{\"op\":\"reparent\",\"count\":40}]}}",
+        "success_regex": "\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "python3 bench/mocks/mock_unity.py --mode wrapper --scenario batch_ops --iteration {iteration}",
+        "request_text": "uni-cli batch apply --file bench/fixtures/batch_ops.json --fields status,id --limit 40 --cursor 0",
+        "success_regex": "^ok\\s"
+      }
+    }
+  ]
+}
+

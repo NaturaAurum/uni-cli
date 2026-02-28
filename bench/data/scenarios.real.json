@@ -1,0 +1,70 @@
+{
+  "name": "real-unity-benchmark",
+  "description": "Real benchmark against running Unity MCP HTTP server",
+  "defaults": {
+    "iterations": 5,
+    "warmup": 1
+  },
+  "scenarios": [
+    {
+      "id": "hierarchy_query",
+      "description": "Hierarchy list query",
+      "baseline": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario hierarchy_query --mode baseline --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "{\"method\":\"tools/call\",\"name\":\"manage_scene\",\"arguments\":{\"action\":\"get_hierarchy\",\"page_size\":120,\"cursor\":0,\"max_depth\":4,\"include_transform\":true,\"unity_instance\":\"uni-cli\"}}"
+      },
+      "wrapper": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario hierarchy_query --mode wrapper --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "uni-cli hierarchy ls --instance uni-cli --fields id,name,parent --limit 120 --cursor 0"
+      }
+    },
+    {
+      "id": "object_create",
+      "description": "Create object",
+      "baseline": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario object_create --mode baseline --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "{\"method\":\"tools/call\",\"name\":\"manage_gameobject\",\"arguments\":{\"action\":\"create\",\"name\":\"BenchObj\",\"primitive_type\":\"Cube\",\"position\":[0,1,0],\"unity_instance\":\"uni-cli\"}}"
+      },
+      "wrapper": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario object_create --mode wrapper --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "uni-cli object create --instance uni-cli --name BenchObj --preset cube --pos 0,1,0"
+      }
+    },
+    {
+      "id": "reparent",
+      "description": "Reparent object",
+      "baseline": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario reparent --mode baseline --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "{\"method\":\"tools/call\",\"name\":\"manage_gameobject\",\"arguments\":{\"action\":\"modify\",\"target\":\"BenchChild\",\"search_method\":\"by_name\",\"parent\":\"BenchParent\",\"unity_instance\":\"uni-cli\"}}"
+      },
+      "wrapper": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario reparent --mode wrapper --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "uni-cli object reparent --instance uni-cli --id BenchChild --parent BenchParent"
+      }
+    },
+    {
+      "id": "asset_search",
+      "description": "Asset search with pagination",
+      "baseline": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario asset_search --mode baseline --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "{\"method\":\"tools/call\",\"name\":\"manage_asset\",\"arguments\":{\"action\":\"search\",\"path\":\"Assets\",\"filter_type\":\"Script\",\"page_size\":80,\"page_number\":1,\"generate_preview\":false,\"unity_instance\":\"uni-cli\"}}"
+      },
+      "wrapper": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario asset_search --mode wrapper --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "uni-cli asset search --instance uni-cli --query \"t:Script\" --fields path,name --limit 80 --cursor 0"
+      }
+    },
+    {
+      "id": "batch_ops",
+      "description": "Batch create/move operation",
+      "baseline": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario batch_ops --mode baseline --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "{\"method\":\"tools/call\",\"name\":\"batch_execute\",\"arguments\":{\"commands\":[{\"tool\":\"manage_gameobject\",\"params\":{\"action\":\"create\"}},{\"tool\":\"manage_gameobject\",\"params\":{\"action\":\"modify\"}}],\"unity_instance\":\"uni-cli\"}}"
+      },
+      "wrapper": {
+        "command": "python3 scripts/mcp_real_scenario.py --scenario batch_ops --mode wrapper --iteration {iteration} --unity-instance uni-cli",
+        "request_text": "uni-cli batch apply --instance uni-cli --file batch_ops.json --fields status,id --limit 3 --cursor 0"
+      }
+    }
+  ]
+}

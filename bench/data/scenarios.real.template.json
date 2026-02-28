@@ -1,0 +1,81 @@
+{
+  "name": "real-unity-benchmark",
+  "description": "Replace command fields with real commands before execution",
+  "defaults": {
+    "iterations": 30,
+    "warmup": 3
+  },
+  "scenarios": [
+    {
+      "id": "hierarchy_query",
+      "description": "Hierarchy list query",
+      "baseline": {
+        "command": "REPLACE_WITH_REAL_BASELINE_COMMAND",
+        "request_text": "{\"tool\":\"hierarchy.list\",\"args\":{\"path\":\"/\",\"depth\":3,\"includeComponents\":true}}",
+        "success_regex": "ok|\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "REPLACE_WITH_REAL_WRAPPER_COMMAND",
+        "request_text": "uni-cli hierarchy ls --path / --depth 3 --fields id,name,parentId --limit 100 --cursor 0",
+        "success_regex": "^ok\\s|\"ok\":\\s*true"
+      }
+    },
+    {
+      "id": "object_create",
+      "description": "Create object",
+      "baseline": {
+        "command": "REPLACE_WITH_REAL_BASELINE_COMMAND",
+        "request_text": "{\"tool\":\"object.create\",\"args\":{\"name\":\"BenchCube\",\"parentId\":\"go_0000\",\"components\":[\"MeshFilter\",\"MeshRenderer\"]}}",
+        "success_regex": "ok|\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "REPLACE_WITH_REAL_WRAPPER_COMMAND",
+        "request_text": "uni-cli object create --name BenchCube --parent go_0000 --preset primitive_cube",
+        "success_regex": "^ok\\s|\"ok\":\\s*true"
+      }
+    },
+    {
+      "id": "reparent",
+      "description": "Reparent object",
+      "baseline": {
+        "command": "REPLACE_WITH_REAL_BASELINE_COMMAND",
+        "request_text": "{\"tool\":\"object.reparent\",\"args\":{\"targetId\":\"go_0012\",\"newParentId\":\"go_0003\",\"worldPositionStays\":true}}",
+        "success_regex": "ok|\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "REPLACE_WITH_REAL_WRAPPER_COMMAND",
+        "request_text": "uni-cli object reparent --id go_0012 --parent go_0003 --world-pos-stays 1",
+        "success_regex": "^ok\\s|\"ok\":\\s*true"
+      }
+    },
+    {
+      "id": "asset_search",
+      "description": "Asset search with pagination",
+      "baseline": {
+        "command": "REPLACE_WITH_REAL_BASELINE_COMMAND",
+        "request_text": "{\"tool\":\"asset.search\",\"args\":{\"query\":\"t:Texture\",\"limit\":50,\"cursor\":\"0\",\"includeImporter\":true}}",
+        "success_regex": "ok|\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "REPLACE_WITH_REAL_WRAPPER_COMMAND",
+        "request_text": "uni-cli asset search --query \"t:Texture\" --fields guid,path --limit 50 --cursor 0",
+        "success_regex": "^ok\\s|\"ok\":\\s*true"
+      }
+    },
+    {
+      "id": "batch_ops",
+      "description": "Batch create/move operation",
+      "baseline": {
+        "command": "REPLACE_WITH_REAL_BASELINE_COMMAND",
+        "request_text": "{\"tool\":\"batch.apply\",\"args\":{\"ops\":[{\"op\":\"create\",\"count\":40},{\"op\":\"reparent\",\"count\":40}]}}",
+        "success_regex": "ok|\"ok\":\\s*true"
+      },
+      "wrapper": {
+        "command": "REPLACE_WITH_REAL_WRAPPER_COMMAND",
+        "request_text": "uni-cli batch apply --file bench/fixtures/batch_ops.json --fields status,id --limit 40 --cursor 0",
+        "success_regex": "^ok\\s|\"ok\":\\s*true"
+      }
+    }
+  ]
+}
+
