@@ -7,6 +7,8 @@ import json
 import sys
 from typing import Any
 
+from uni_cli import __version__
+
 from uni_cli.formatter.compact import format_error, format_json, format_result
 from uni_cli.transport.mcp_client import McpClient, McpError, resolve_instance
 
@@ -16,7 +18,7 @@ def _build_parser() -> argparse.ArgumentParser:
         prog="uni-cli",
         description="Token-efficient CLI for LLM agents to control Unity Editor.",
     )
-    parser.add_argument("--version", action="version", version="%(prog)s 0.1.0")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     parser.add_argument(
         "--url",
         default="http://127.0.0.1:8080/mcp",
