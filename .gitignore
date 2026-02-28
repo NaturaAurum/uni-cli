@@ -1,0 +1,42 @@
+# Unity
+unity-project/Library/
+unity-project/Temp/
+unity-project/Logs/
+unity-project/UserSettings/
+unity-project/obj/
+unity-project/*.csproj
+unity-project/*.sln
+*.meta
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Benchmark temp files
+*.log
+*.pid
+bench/reports/*.log
+bench/reports/*.pid
+
+# Session / conversation logs
+docs/conversation-*.md
+bench/reports/conversation-*.md
