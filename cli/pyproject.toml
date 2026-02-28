@@ -29,3 +29,7 @@ uni-cli = "uni_cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/uni_cli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
