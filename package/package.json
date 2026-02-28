@@ -1,0 +1,23 @@
+{
+  "name": "com.uni-cli.tools",
+  "version": "0.1.0",
+  "displayName": "uni-cli Tools",
+  "description": "Additional Unity subsystem tools for LLM agents. Extends unity-mcp with UI Toolkit, Addressables, DOTS support and compact CLI output.",
+  "unity": "2021.3",
+  "documentationUrl": "https://github.com/ArtisanCodesmith/uni-cli",
+  "dependencies": {
+    "com.coplaydev.unity-mcp": "9.4.7",
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
+  },
+  "keywords": [
+    "unity",
+    "ai",
+    "llm",
+    "cli",
+    "mcp",
+    "agent"
+  ],
+  "author": {
+    "name": "ArtisanCodesmith"
+  }
+}
