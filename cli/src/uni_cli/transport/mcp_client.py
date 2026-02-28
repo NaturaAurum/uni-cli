@@ -224,9 +224,7 @@ class McpClient:
         self._seq += 1
         event, raw, _ = _post_json(self.url, msg, self.session_id, self.timeout_sec)
         if not event:
-            raise McpError(
-                "NO_RESPONSE", f"resources/read {uri}: no event: {raw[:500]}"
-            )
+            raise McpError("NO_RESPONSE", f"resources/read {uri}: no event: {raw[:500]}")
         if "error" in event:
             err = event["error"]
             raise McpError(
@@ -341,20 +339,14 @@ def resolve_instance(client: McpClient, selector: str | None) -> str:
     by_name = [
         str(inst.get("id"))
         for inst in instances
-        if isinstance(inst, dict)
-        and str(inst.get("name")) == selector
-        and inst.get("id")
+        if isinstance(inst, dict) and str(inst.get("name")) == selector and inst.get("id")
     ]
     if len(by_name) == 1:
         return by_name[0]
     if len(by_name) > 1:
         raise McpError("AMBIGUOUS_INSTANCE", f"Multiple instances match '{selector}'")
 
-    available = ", ".join(
-        str(inst.get("id"))
-        for inst in instances
-        if isinstance(inst, dict) and inst.get("id")
-    )
+    available = ", ".join(str(inst.get("id")) for inst in instances if isinstance(inst, dict) and inst.get("id"))
     raise McpError(
         "INSTANCE_NOT_FOUND",
         f"Instance '{selector}' not found; available: {available}",

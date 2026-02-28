@@ -252,7 +252,7 @@ def main() -> int:
         }
 
     # --- Output ---
-    print(f"=== Tool Schema Overhead Analysis ===")
+    print("=== Tool Schema Overhead Analysis ===")
     print(f"Token counter: {tc.mode}")
     print()
     print(
@@ -274,8 +274,12 @@ def main() -> int:
     print()
     print("Amortized per-operation overhead:")
     for n_ops in [1, 5, 10, 25, 50]:
+        mcp_amort = mcp_total / n_ops
+        cli_amort = cli_total / n_ops
+        delta_amort = delta / n_ops
         print(
-            f"  {n_ops:>3} ops: MCP={mcp_total / n_ops:>7.1f}  CLI={cli_total / n_ops:>7.1f}  delta={delta / n_ops:>+7.1f}"
+            f"  {n_ops:>3} ops: MCP={mcp_amort:>7.1f}"
+            f"  CLI={cli_amort:>7.1f}  delta={delta_amort:>+7.1f}"
         )
 
     # Save JSON

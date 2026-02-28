@@ -37,7 +37,7 @@ Add to your `Packages/manifest.json`:
 {
   "dependencies": {
     "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
-    "com.uni-cli.tools": "https://github.com/ArtisanCodesmith/uni-cli.git?path=/package"
+    "com.uni-cli.tools": "https://github.com/NaturaAurum/uni-cli.git?path=/package"
   }
 }
 ```
@@ -71,10 +71,10 @@ Full benchmark report: [`bench/reports/final-benchmark-report.md`](bench/reports
 
 | Tool | Status | Subsystem |
 |------|--------|-----------|
-| `manage_ui_toolkit` | Planned | UI Toolkit (UXML, USS, VisualElement) |
-| `manage_addressables` | Planned | Addressable Asset System |
-| `manage_dots` | Planned | DOTS / ECS |
-| `manage_shader_graph` | Planned | Shader Graph |
+| `manage_ui_toolkit` | ✅ Implemented | UI Toolkit (UXML, USS, VisualElement) |
+| `manage_addressables` | ✅ Implemented | Addressable Asset System |
+| `manage_dots` | ✅ Implemented | DOTS / ECS |
+| `manage_shader_graph` | ✅ Implemented | Shader Graph |
 
 These tools use the same `[McpForUnityTool]` attribute as unity-mcp, so they're auto-discovered by the MCP server when installed.
 
