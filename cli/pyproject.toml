@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "uni-cli"
+version = "0.1.0"
+description = "Token-efficient CLI for LLM agents to control Unity Editor"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "ArtisanCodesmith" },
+]
+keywords = ["unity", "llm", "cli", "mcp", "agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Build Tools",
+]
+dependencies = []
+
+[project.scripts]
+uni-cli = "uni_cli.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/uni_cli"]
