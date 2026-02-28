@@ -6,7 +6,6 @@ build-backend = "hatchling.build"
 name = "uni-cli"
 version = "0.1.0"
 description = "Token-efficient CLI for LLM agents to control Unity Editor"
-readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
@@ -21,6 +20,9 @@ classifiers = [
     "Topic :: Software Development :: Build Tools",
 ]
 dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
 
 [project.scripts]
 uni-cli = "uni_cli.main:main"

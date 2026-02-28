@@ -10,7 +10,6 @@ from typing import Any
 
 from uni_cli.transport.mcp_client import McpClient, extract_text, parse_result_json
 
-
 # Tool name mapping: CLI command name -> MCP tool name
 _TOOL_MAP = {
     "ui-toolkit": "manage_ui_toolkit",

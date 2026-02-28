@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff==0.11.13
+
+      - name: Ruff check
+        run: ruff check cli/src/ cli/tests/ bench/scripts/
+
+      - name: Ruff format check
+        run: ruff format --check cli/src/ cli/tests/
+
+  typecheck:
+    name: Compile Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: py_compile cli/src/
+        run: find cli/src/ -name '*.py' -exec python3 -m py_compile {} +
+
+      - name: py_compile bench/scripts/
+        run: find bench/scripts/ -name '*.py' -exec python3 -m py_compile {} +
+
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: cli/pyproject.toml
+
+      - name: Install package with test deps
+        run: pip install -e ".[test]"
+        working-directory: cli
+
+      - name: Run tests
+        run: pytest --tb=short || { ec=$?; [ $ec -eq 5 ] && exit 0 || exit $ec; }
+        working-directory: cli

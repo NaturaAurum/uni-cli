@@ -57,9 +57,7 @@ def _build_parser() -> argparse.ArgumentParser:
 
     obj_create = obj_sub.add_parser("create", help="Create GameObject")
     obj_create.add_argument("--name", required=True)
-    obj_create.add_argument(
-        "--preset", default="empty", help="Primitive type: empty, Cube, Sphere, etc."
-    )
+    obj_create.add_argument("--preset", default="empty", help="Primitive type: empty, Cube, Sphere, etc.")
     obj_create.add_argument("--pos", default="0,0,0", help="Position x,y,z")
 
     obj_get = obj_sub.add_parser("get", help="Get GameObject info")
@@ -70,9 +68,7 @@ def _build_parser() -> argparse.ArgumentParser:
     obj_modify.add_argument("--pos", default=None, help="New position x,y,z")
     obj_modify.add_argument("--parent", default=None, help="New parent name")
     obj_modify.add_argument("--name", default=None, dest="new_name", help="Rename")
-    obj_modify.add_argument(
-        "--active", default=None, type=_parse_bool, help="Set active state (true/false)"
-    )
+    obj_modify.add_argument("--active", default=None, type=_parse_bool, help="Set active state (true/false)")
 
     obj_delete = obj_sub.add_parser("delete", help="Delete GameObject")
     obj_delete.add_argument("--target", required=True)
@@ -133,9 +129,7 @@ def _parse_bool(val: str) -> bool:
     raise argparse.ArgumentTypeError(f"Expected bool, got '{val}'")
 
 
-def _dispatch(
-    client: McpClient, instance_id: str, args: argparse.Namespace
-) -> tuple[str, str, dict[str, Any]]:
+def _dispatch(client: McpClient, instance_id: str, args: argparse.Namespace) -> tuple[str, str, dict[str, Any]]:
     """Dispatch command and return (command, action, result_data)."""
     cmd = args.command
     action = getattr(args, "action", None) or ""
@@ -291,9 +285,7 @@ def main() -> int:
             limit = args.limit
         if hasattr(args, "cursor"):
             cursor = args.cursor
-        print(
-            format_result(cmd, action, data, fields=fields, limit=limit, cursor=cursor)
-        )
+        print(format_result(cmd, action, data, fields=fields, limit=limit, cursor=cursor))
 
     return 0
 
