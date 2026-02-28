@@ -22,8 +22,15 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
 [project.scripts]
 uni-cli = "uni_cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/uni_cli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
