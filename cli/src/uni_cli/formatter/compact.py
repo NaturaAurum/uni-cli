@@ -15,7 +15,6 @@ from __future__ import annotations
 import json
 from typing import Any
 
-
 # --------------------------------------------------------------------------- #
 # Value escaping
 # --------------------------------------------------------------------------- #
@@ -75,11 +74,7 @@ def format_hierarchy(
     Expects data to be the parsed JSON from manage_scene get_hierarchy.
     """
     nodes = (
-        data.get("hierarchy")
-        or data.get("nodes")
-        or data.get("items")
-        or data.get("data", {}).get("hierarchy")
-        or []
+        data.get("hierarchy") or data.get("nodes") or data.get("items") or data.get("data", {}).get("hierarchy") or []
     )
     if not isinstance(nodes, list):
         nodes = []
@@ -117,9 +112,7 @@ def format_hierarchy(
     next_cursor = data.get("next_cursor", data.get("nextCursor"))
     truncated = 1 if len(nodes) > limit else 0
     next_val = next_cursor if next_cursor is not None else "-"
-    lines.append(
-        f"ok op=hierarchy.ls count={count} next={next_val} truncated={truncated}"
-    )
+    lines.append(f"ok op=hierarchy.ls count={count} next={next_val} truncated={truncated}")
     return "\n".join(lines)
 
 
@@ -136,13 +129,7 @@ def format_asset_search(
     limit: int,
 ) -> str:
     """Format asset search result as compact rows + summary."""
-    results = (
-        data.get("assets")
-        or data.get("results")
-        or data.get("items")
-        or data.get("data", {}).get("assets")
-        or []
-    )
+    results = data.get("assets") or data.get("results") or data.get("items") or data.get("data", {}).get("assets") or []
     if not isinstance(results, list):
         results = []
 
@@ -174,9 +161,7 @@ def format_asset_search(
     page = data.get("pageNumber", data.get("page_number", 1))
     next_val = page + 1 if count >= limit else "-"
     truncated = 1 if count >= limit else 0
-    lines.append(
-        f"ok op=asset.search count={count} next={next_val} truncated={truncated}"
-    )
+    lines.append(f"ok op=asset.search count={count} next={next_val} truncated={truncated}")
     return "\n".join(lines)
 
 
@@ -190,10 +175,7 @@ def format_batch(data: dict[str, Any]) -> str:
     fail = len(fail_items)
     ok_count = total - fail
     # Up to 3 fail IDs per contract
-    fail_ids = ",".join(
-        str(x.get("id") or x.get("name") or f"item_{i}")
-        for i, x in enumerate(fail_items[:3])
-    )
+    fail_ids = ",".join(str(x.get("id") or x.get("name") or f"item_{i}") for i, x in enumerate(fail_items[:3]))
     line = f"ok op=batch.apply total={total} ok_count={ok_count} fail_count={fail}"
     if fail_ids:
         line += f" fail_ids={fail_ids}"
@@ -222,11 +204,9 @@ def format_subsystem_result(tool: str, action: str, data: dict[str, Any]) -> str
         "assets",
     ]
     items = None
-    items_key = None
     for key in list_keys:
         if key in data and isinstance(data[key], list):
             items = data[key]
-            items_key = key
             break
 
     if items is not None:
@@ -296,11 +276,7 @@ def format_result(
         # Fallback: key=value pairs from top-level data
         return format_ok(
             f"{command}.{action}",
-            **{
-                k: v
-                for k, v in data.items()
-                if k not in ("success", "message") and not k.startswith("_")
-            },
+            **{k: v for k, v in data.items() if k not in ("success", "message") and not k.startswith("_")},
         )
 
 

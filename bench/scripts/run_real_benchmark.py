@@ -25,7 +25,6 @@ from mcp_real_scenario import (
     run_reparent,
 )
 
-
 RunnerFn = Callable[[McpSession, str, str, int], str]
 
 
