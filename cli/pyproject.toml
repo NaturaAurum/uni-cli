@@ -6,7 +6,8 @@ build-backend = "hatchling.build"
 name = "uni-cli"
 version = "0.1.0"
 description = "Token-efficient CLI for LLM agents to control Unity Editor"
-license = "MIT"
+readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [
     { name = "ArtisanCodesmith" },
@@ -17,9 +18,19 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Build Tools",
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/NaturaAurum/uni-cli"
+Repository = "https://github.com/NaturaAurum/uni-cli"
+Issues = "https://github.com/NaturaAurum/uni-cli/issues"
 
 [project.optional-dependencies]
 test = ["pytest>=7.0"]
@@ -29,6 +40,12 @@ uni-cli = "uni_cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/uni_cli"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/uni_cli", "README.md", "LICENSE"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"LICENSE" = "uni_cli/LICENSE"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
