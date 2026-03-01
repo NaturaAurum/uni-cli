@@ -8,7 +8,6 @@ import sys
 from typing import Any
 
 from uni_cli import __version__
-
 from uni_cli.formatter.compact import format_error, format_json, format_result
 from uni_cli.transport.mcp_client import McpClient, McpError, resolve_instance
 

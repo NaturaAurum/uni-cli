@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 
-import pytest
-
 from uni_cli.formatter.compact import (
     _esc,
     format_batch,
@@ -18,7 +16,6 @@ from uni_cli.formatter.compact import (
     format_row,
     format_subsystem_result,
 )
-
 
 # ---------------------------------------------------------------------------
 # _esc
@@ -91,9 +88,7 @@ class TestHelpers:
 
 class TestFormatHierarchy:
     def test_collection(self, hierarchy_response: dict[str, Any]) -> None:
-        result = format_hierarchy(
-            hierarchy_response, ["id", "name", "parent"], 120, "0"
-        )
+        result = format_hierarchy(hierarchy_response, ["id", "name", "parent"], 120, "0")
         lines = result.strip().split("\n")
         assert len(lines) == 3  # 2 rows + 1 ok
         assert lines[0].startswith("row ")
@@ -128,9 +123,7 @@ class TestFormatHierarchy:
 
     def test_field_aliases(self) -> None:
         """instanceID should map to 'id' field alias."""
-        data = {
-            "hierarchy": [{"instanceID": 42, "name": "Obj", "parentInstanceID": -1}]
-        }
+        data = {"hierarchy": [{"instanceID": 42, "name": "Obj", "parentInstanceID": -1}]}
         result = format_hierarchy(data, ["id", "name", "parent"], 10, "0")
         assert "id=42" in result
         assert "parent=-1" in result

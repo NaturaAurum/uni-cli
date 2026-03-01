@@ -6,9 +6,7 @@ import json
 from typing import Any
 
 
-def make_tool_result(
-    data: dict[str, Any] | str, *, is_error: bool = False
-) -> dict[str, Any]:
+def make_tool_result(data: dict[str, Any] | str, *, is_error: bool = False) -> dict[str, Any]:
     """Build an MCP tool result envelope (content + isError)."""
     text = data if isinstance(data, str) else json.dumps(data)
     return {

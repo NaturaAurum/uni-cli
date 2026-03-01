@@ -3,12 +3,10 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from typing import Any
-from unittest.mock import MagicMock, call
 
 import pytest
-
+from helpers import make_tool_result
 from uni_cli.commands.asset import run_create as asset_create
 from uni_cli.commands.asset import run_delete as asset_delete
 from uni_cli.commands.asset import run_info as asset_info
@@ -22,9 +20,6 @@ from uni_cli.commands.object import run_modify as obj_modify
 from uni_cli.commands.subsystem import run_subsystem
 from uni_cli.transport.mcp_client import McpClient
 
-from helpers import make_tool_result
-
-
 INSTANCE_ID = "test-project@abc123"
 
 
@@ -35,9 +30,7 @@ INSTANCE_ID = "test-project@abc123"
 
 class TestHierarchy:
     def test_run_ls_calls_manage_scene(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"hierarchy": [{"instanceID": 1, "name": "Cam"}]}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"hierarchy": [{"instanceID": 1, "name": "Cam"}]})
 
         result = run_ls(mock_client, INSTANCE_ID, "id,name", 50, "0")
 
@@ -70,9 +63,7 @@ class TestHierarchy:
 
 class TestObject:
     def test_run_create(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"instanceID": 42, "name": "Sphere"}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"instanceID": 42, "name": "Sphere"})
 
         result = obj_create(mock_client, INSTANCE_ID, "Sphere", "Sphere", "1,2,3")
 
@@ -85,9 +76,7 @@ class TestObject:
         assert result["instanceID"] == 42
 
     def test_run_create_empty_preset_no_primitive(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"instanceID": 1, "name": "E"}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"instanceID": 1, "name": "E"})
 
         obj_create(mock_client, INSTANCE_ID, "E", "empty", "0,0,0")
 
@@ -98,7 +87,7 @@ class TestObject:
     def test_run_delete(self, mock_client: McpClient) -> None:
         mock_client.call_tool.return_value = make_tool_result({"name": "Gone"})
 
-        result = obj_delete(mock_client, INSTANCE_ID, "OldObj")
+        obj_delete(mock_client, INSTANCE_ID, "OldObj")
 
         args = mock_client.call_tool.call_args[0][1]
         assert args["action"] == "delete"
@@ -106,9 +95,7 @@ class TestObject:
         assert args["search_method"] == "by_name"
 
     def test_run_get(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"instanceID": 5, "name": "Player"}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"instanceID": 5, "name": "Player"})
 
         result = obj_get(mock_client, INSTANCE_ID, "Player")
 
@@ -157,13 +144,9 @@ class TestObject:
 
 class TestAsset:
     def test_run_search(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"assets": [{"path": "Assets/x.cs"}]}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"assets": [{"path": "Assets/x.cs"}]})
 
-        result = asset_search(
-            mock_client, INSTANCE_ID, "*.cs", "MonoScript", "path,name", 20
-        )
+        asset_search(mock_client, INSTANCE_ID, "*.cs", "MonoScript", "path,name", 20)
 
         args = mock_client.call_tool.call_args[0][1]
         assert args["action"] == "search"
@@ -182,20 +165,16 @@ class TestAsset:
         assert "filter_type" not in args
 
     def test_run_info(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"path": "Assets/Tex.png", "size": 1024}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"path": "Assets/Tex.png", "size": 1024})
 
-        result = asset_info(mock_client, INSTANCE_ID, "Assets/Tex.png")
+        asset_info(mock_client, INSTANCE_ID, "Assets/Tex.png")
 
         args = mock_client.call_tool.call_args[0][1]
         assert args["action"] == "get_info"
         assert args["path"] == "Assets/Tex.png"
 
     def test_run_create(self, mock_client: McpClient) -> None:
-        mock_client.call_tool.return_value = make_tool_result(
-            {"path": "Assets/New.mat"}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"path": "Assets/New.mat"})
 
         asset_create(mock_client, INSTANCE_ID, "Assets/New.mat", "Material")
 
@@ -241,11 +220,9 @@ class TestBatch:
             )
         )
 
-        mock_client.call_tool.return_value = make_tool_result(
-            {"results": [{"id": "op1"}, {"id": "op2"}]}
-        )
+        mock_client.call_tool.return_value = make_tool_result({"results": [{"id": "op1"}, {"id": "op2"}]})
 
-        result = run_apply(mock_client, INSTANCE_ID, str(batch_file))
+        run_apply(mock_client, INSTANCE_ID, str(batch_file))
 
         args = mock_client.call_tool.call_args[0][1]
         assert args["commands"][0]["params"]["unity_instance"] == INSTANCE_ID
@@ -254,9 +231,7 @@ class TestBatch:
         assert args["fail_fast"] is True
         assert mock_client.call_tool.call_args[0][0] == "batch_execute"
 
-    def test_run_apply_empty_commands(
-        self, mock_client: McpClient, tmp_path: Any
-    ) -> None:
+    def test_run_apply_empty_commands(self, mock_client: McpClient, tmp_path: Any) -> None:
         batch_file = tmp_path / "empty.json"
         batch_file.write_text(json.dumps({"commands": []}))
 
@@ -306,9 +281,7 @@ class TestSubsystem:
     def test_extra_args_merged(self, mock_client: McpClient) -> None:
         mock_client.call_tool.return_value = make_tool_result({"items": []})
 
-        run_subsystem(
-            mock_client, INSTANCE_ID, "ui-toolkit", "create", {"path": "Assets/X.uxml"}
-        )
+        run_subsystem(mock_client, INSTANCE_ID, "ui-toolkit", "create", {"path": "Assets/X.uxml"})
 
         args = mock_client.call_tool.call_args[0][1]
         assert args["path"] == "Assets/X.uxml"
