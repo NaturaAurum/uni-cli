@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "uni-cli"
+name = "unity-mcp-cli"
 version = "0.1.0"
 description = "Token-efficient CLI for LLM agents to control Unity Editor"
 readme = "README.md"
