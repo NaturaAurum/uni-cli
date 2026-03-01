@@ -4,22 +4,17 @@ from __future__ import annotations
 
 import io
 import json
-from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
-
+from helpers import make_instances_resource, make_tool_result
 from uni_cli.transport.mcp_client import (
     McpClient,
     McpError,
-    _post_json,
     extract_text,
     parse_result_json,
     resolve_instance,
 )
-
-from helpers import make_instances_resource, make_tool_result
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -61,9 +56,7 @@ class TestJsonRpcFormat:
     @patch("uni_cli.transport.mcp_client.urllib.request.urlopen")
     def test_call_tool_sends_correct_jsonrpc(self, mock_urlopen: MagicMock) -> None:
         """call_tool must send {"jsonrpc": "2.0", "method": "tools/call", "id": N}."""
-        result_payload = json.dumps(
-            {"jsonrpc": "2.0", "id": 2, "result": make_tool_result({"ok": True})}
-        )
+        result_payload = json.dumps({"jsonrpc": "2.0", "id": 2, "result": make_tool_result({"ok": True})})
         mock_urlopen.return_value = _fake_urlopen(result_payload)
 
         client = McpClient(url="http://localhost:8080/mcp")
@@ -84,9 +77,7 @@ class TestJsonRpcFormat:
     @patch("uni_cli.transport.mcp_client.urllib.request.urlopen")
     def test_initialize_sends_correct_format(self, mock_urlopen: MagicMock) -> None:
         """initialize must send method='initialize' with protocolVersion."""
-        init_response = json.dumps(
-            {"jsonrpc": "2.0", "id": 1, "result": {"capabilities": {}}}
-        )
+        init_response = json.dumps({"jsonrpc": "2.0", "id": 1, "result": {"capabilities": {}}})
         mock_urlopen.side_effect = [
             _fake_urlopen(init_response, session_id="new-sid"),
             _fake_urlopen("", status=200),
@@ -111,9 +102,7 @@ class TestSessionId:
     @patch("uni_cli.transport.mcp_client.urllib.request.urlopen")
     def test_session_id_captured_from_response(self, mock_urlopen: MagicMock) -> None:
         """First response's mcp-session-id header should be stored."""
-        init_resp = json.dumps(
-            {"jsonrpc": "2.0", "id": 1, "result": {"capabilities": {}}}
-        )
+        init_resp = json.dumps({"jsonrpc": "2.0", "id": 1, "result": {"capabilities": {}}})
         mock_urlopen.side_effect = [
             _fake_urlopen(init_resp, session_id="captured-sid"),
             _fake_urlopen("", status=200),
@@ -124,13 +113,9 @@ class TestSessionId:
         assert client.session_id == "captured-sid"
 
     @patch("uni_cli.transport.mcp_client.urllib.request.urlopen")
-    def test_session_id_sent_in_subsequent_requests(
-        self, mock_urlopen: MagicMock
-    ) -> None:
+    def test_session_id_sent_in_subsequent_requests(self, mock_urlopen: MagicMock) -> None:
         """After init, subsequent requests should include mcp-session-id header."""
-        tool_resp = json.dumps(
-            {"jsonrpc": "2.0", "id": 1, "result": make_tool_result({"ok": True})}
-        )
+        tool_resp = json.dumps({"jsonrpc": "2.0", "id": 1, "result": make_tool_result({"ok": True})})
         mock_urlopen.return_value = _fake_urlopen(tool_resp)
 
         client = McpClient(url="http://localhost:8080/mcp")

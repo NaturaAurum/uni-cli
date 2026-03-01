@@ -6,9 +6,7 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
-
 from uni_cli.transport.mcp_client import McpClient
-
 
 # ---------------------------------------------------------------------------
 # Fixtures

@@ -6,13 +6,8 @@ import json
 from typing import Any
 from unittest.mock import MagicMock, patch
 
-import pytest
-
-from uni_cli.main import _build_parser, _dispatch, main
-from uni_cli.transport.mcp_client import McpClient
-
 from helpers import make_tool_result
-
+from uni_cli.main import _build_parser, _dispatch, main
 
 # ---------------------------------------------------------------------------
 # argparse (_build_parser)
@@ -36,9 +31,7 @@ class TestArgparse:
 
     def test_object_create(self) -> None:
         parser = _build_parser()
-        args = parser.parse_args(
-            ["object", "create", "--name", "Cube", "--preset", "Cube"]
-        )
+        args = parser.parse_args(["object", "create", "--name", "Cube", "--preset", "Cube"])
         assert args.command == "object"
         assert args.action == "create"
         assert args.name == "Cube"
@@ -218,9 +211,7 @@ class TestDispatch:
     @patch("uni_cli.commands.asset.run_create")
     def test_asset_create_dispatch(self, mock_run: MagicMock) -> None:
         mock_run.return_value = {"path": "x"}
-        args = self._make_args(
-            ["asset", "create", "--path", "Assets/x.mat", "--type", "Material"]
-        )
+        args = self._make_args(["asset", "create", "--path", "Assets/x.mat", "--type", "Material"])
 
         cmd, action, _ = _dispatch(MagicMock(), "inst@1", args)
 
@@ -299,9 +290,7 @@ class TestMain:
     ) -> None:
         client = MockClient.return_value
         client.initialize.return_value = {"capabilities": {}}
-        client.call_tool.return_value = make_tool_result(
-            {"instanceID": 10, "name": "Cube"}
-        )
+        client.call_tool.return_value = make_tool_result({"instanceID": 10, "name": "Cube"})
 
         with patch("sys.argv", ["uni-cli", "object", "create", "--name", "Cube"]):
             ret = main()
@@ -321,9 +310,7 @@ class TestMain:
     ) -> None:
         client = MockClient.return_value
         client.initialize.return_value = {"capabilities": {}}
-        client.call_tool.return_value = make_tool_result(
-            {"instanceID": 10, "name": "Cube"}
-        )
+        client.call_tool.return_value = make_tool_result({"instanceID": 10, "name": "Cube"})
 
         with patch(
             "sys.argv",
