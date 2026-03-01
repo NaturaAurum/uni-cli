@@ -17,7 +17,6 @@ from mcp_real_scenario import (
     resolve_instance_id,
 )
 
-
 SceneRunner = Callable[[str, dict[str, str]], dict[str, Any]]
 
 
@@ -61,7 +60,7 @@ def switch_to_scene_profile(
 
     # Save current scene before switching to avoid unsaved-changes error
     try:
-        save_res = session.call_tool(
+        session.call_tool(
             "manage_scene",
             {"action": "save", "unity_instance": resolved_instance},
         )
