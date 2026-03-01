@@ -16,7 +16,7 @@ LLM agents talking to Unity through MCP pay a heavy token tax — large tool sch
 ## Install
 
 ```bash
-pip install uni-cli
+pip install unity-mcp-cli
 ```
 
 **Prerequisites:**

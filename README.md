@@ -47,7 +47,7 @@ New tools appear automatically in MCP-compatible clients (Cursor, Claude Code, V
 ### 2. CLI Tool (optional, for token efficiency)
 
 ```bash
-pip install uni-cli
+pip install unity-mcp-cli
 ```
 
 ```bash
