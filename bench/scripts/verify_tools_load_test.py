@@ -25,7 +25,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from mcp_real_scenario import McpSession, resolve_instance_id, parse_text_json
+from mcp_real_scenario import McpSession, parse_text_json, resolve_instance_id
 
 # ---------------------------------------------------------------------------
 # Constants
