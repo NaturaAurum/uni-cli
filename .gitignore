@@ -6,7 +6,7 @@ unity-project/UserSettings/
 unity-project/obj/
 unity-project/*.csproj
 unity-project/*.sln
-*.meta
+unity-project/**/*.meta
 
 # Python
 __pycache__/
