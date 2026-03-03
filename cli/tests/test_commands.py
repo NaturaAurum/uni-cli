@@ -267,7 +267,9 @@ class TestSubsystem:
 
         run_subsystem(mock_client, INSTANCE_ID, command, "list")
 
-        assert mock_client.call_tool.call_args[0][0] == expected_tool
+        assert mock_client.call_tool.call_args[0][0] == "execute_custom_tool"
+        args = mock_client.call_tool.call_args[0][1]
+        assert args["tool_name"] == expected_tool
 
     def test_action_passed(self, mock_client: McpClient) -> None:
         mock_client.call_tool.return_value = make_tool_result({"items": []})
@@ -275,7 +277,8 @@ class TestSubsystem:
         run_subsystem(mock_client, INSTANCE_ID, "dots", "list_worlds")
 
         args = mock_client.call_tool.call_args[0][1]
-        assert args["action"] == "list_worlds"
+        assert args["tool_name"] == "manage_dots"
+        assert args["parameters"]["action"] == "list_worlds"
         assert args["unity_instance"] == INSTANCE_ID
 
     def test_extra_args_merged(self, mock_client: McpClient) -> None:
@@ -284,8 +287,8 @@ class TestSubsystem:
         run_subsystem(mock_client, INSTANCE_ID, "ui-toolkit", "create", {"path": "Assets/X.uxml"})
 
         args = mock_client.call_tool.call_args[0][1]
-        assert args["path"] == "Assets/X.uxml"
-        assert args["action"] == "create"
+        assert args["parameters"]["path"] == "Assets/X.uxml"
+        assert args["parameters"]["action"] == "create"
 
     def test_unknown_subsystem(self, mock_client: McpClient) -> None:
         result = run_subsystem(mock_client, INSTANCE_ID, "unknown-system", "list")
