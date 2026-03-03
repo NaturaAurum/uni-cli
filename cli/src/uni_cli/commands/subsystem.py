@@ -2,6 +2,11 @@
 
 These proxy to the uni-cli UPM package tools (manage_ui_toolkit, etc.)
 which are auto-registered via [McpForUnityTool] attribute.
+
+Custom tools must be invoked via the execute_custom_tool MCP tool,
+not called directly by name. Built-in tools (manage_scene, etc.) are
+hardcoded in the Python MCP server (AutoRegister=false), while custom
+tools are project-scoped and routed through execute_custom_tool.
 """
 
 from __future__ import annotations
@@ -10,7 +15,7 @@ from typing import Any
 
 from uni_cli.transport.mcp_client import McpClient, extract_text, parse_result_json
 
-# Tool name mapping: CLI command name -> MCP tool name
+# Tool name mapping: CLI command name -> unity-mcp custom tool name
 _TOOL_MAP = {
     "ui-toolkit": "manage_ui_toolkit",
     "addressables": "manage_addressables",
@@ -28,6 +33,9 @@ def run_subsystem(
 ) -> dict[str, Any]:
     """Generic dispatcher for subsystem tool commands.
 
+    Invokes custom tools via execute_custom_tool, which is the
+    unity-mcp gateway for project-scoped tool execution.
+
     Args:
         client: MCP client
         instance_id: Unity instance ID
@@ -39,14 +47,17 @@ def run_subsystem(
     if not tool_name:
         return {"success": False, "error": f"Unknown subsystem: {command}"}
 
+    params: dict[str, Any] = {"action": action}
+    if extra_args:
+        params.update(extra_args)
+
     args: dict[str, Any] = {
-        "action": action,
+        "tool_name": tool_name,
+        "parameters": params,
         "unity_instance": instance_id,
     }
-    if extra_args:
-        args.update(extra_args)
 
-    result = client.call_tool(tool_name, args)
+    result = client.call_tool("execute_custom_tool", args)
     parsed = parse_result_json(result)
     if parsed is not None:
         return parsed
