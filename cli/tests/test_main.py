@@ -280,12 +280,14 @@ class TestDispatch:
 
 
 class TestMain:
+    @patch("uni_cli.main.is_server_running", return_value=True)
     @patch("uni_cli.main.resolve_instance", return_value="inst@1")
     @patch("uni_cli.main.McpClient")
     def test_compact_output(
         self,
         MockClient: MagicMock,
         mock_resolve: MagicMock,
+        mock_server_running: MagicMock,
         capsys: Any,
     ) -> None:
         client = MockClient.return_value
@@ -300,12 +302,14 @@ class TestMain:
         assert "op=object.create" in out
         assert "name=Cube" in out
 
+    @patch("uni_cli.main.is_server_running", return_value=True)
     @patch("uni_cli.main.resolve_instance", return_value="inst@1")
     @patch("uni_cli.main.McpClient")
     def test_json_output(
         self,
         MockClient: MagicMock,
         mock_resolve: MagicMock,
+        mock_server_running: MagicMock,
         capsys: Any,
     ) -> None:
         client = MockClient.return_value
@@ -332,8 +336,9 @@ class TestMain:
         out = capsys.readouterr().out
         assert "usage:" in out.lower() or "uni-cli" in out
 
+    @patch("uni_cli.main.is_server_running", return_value=True)
     @patch("uni_cli.main.McpClient")
-    def test_connection_error(self, MockClient: MagicMock, capsys: Any) -> None:
+    def test_connection_error(self, MockClient: MagicMock, mock_server_running: MagicMock, capsys: Any) -> None:
         from uni_cli.transport.mcp_client import McpError
 
         client = MockClient.return_value

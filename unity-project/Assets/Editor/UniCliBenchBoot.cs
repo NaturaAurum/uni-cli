@@ -7,7 +7,11 @@ using UnityEngine;
 
 public static class UniCliBenchBoot
 {
-    [InitializeOnLoadMethod]
+    // NOTE: Auto-start disabled — was forcing HTTP transport on every domain
+    // reload, preventing StdioBridge auto-start. Re-enable for benchmarks only
+    // by uncommenting [InitializeOnLoadMethod] below.
+    //
+    // [InitializeOnLoadMethod]
     public static void AutoStartHttpBridge()
     {
         try

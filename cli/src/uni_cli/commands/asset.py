@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from uni_cli.transport.mcp_client import McpClient, extract_text, parse_result_json
+from uni_cli.transport.mcp_client import McpClient, StdioMcpClient, extract_text, parse_result_json
 
 
 def run_search(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     query: str,
     filter_type: str | None,
@@ -36,7 +36,7 @@ def run_search(
 
 
 def run_info(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     path: str,
 ) -> dict[str, Any]:
@@ -54,7 +54,7 @@ def run_info(
 
 
 def run_create(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     path: str,
     asset_type: str,
@@ -77,7 +77,7 @@ def run_create(
 
 
 def run_delete(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     path: str,
 ) -> dict[str, Any]:
