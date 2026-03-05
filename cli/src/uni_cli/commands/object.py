@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from uni_cli.transport.mcp_client import McpClient, extract_text, parse_result_json
+from uni_cli.transport.mcp_client import McpClient, StdioMcpClient, extract_text, parse_result_json
 
 
 def run_create(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     name: str,
     preset: str,
@@ -33,7 +33,7 @@ def run_create(
 
 
 def run_get(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     target: str,
 ) -> dict[str, Any]:
@@ -52,7 +52,7 @@ def run_get(
 
 
 def run_modify(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     target: str,
     *,
@@ -84,7 +84,7 @@ def run_modify(
 
 
 def run_delete(
-    client: McpClient,
+    client: McpClient | StdioMcpClient,
     instance_id: str,
     target: str,
 ) -> dict[str, Any]:
