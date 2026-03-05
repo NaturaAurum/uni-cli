@@ -7,6 +7,9 @@ and instance resolution for unity-mcp servers.
 from __future__ import annotations
 
 import json
+import os
+import select
+import subprocess
 import time
 import urllib.error
 import urllib.request
@@ -291,7 +294,7 @@ def parse_result_json(result: dict[str, Any]) -> Any:
         return None
 
 
-def resolve_instance(client: McpClient, selector: str | None) -> str:
+def resolve_instance(client: McpClient | StdioMcpClient, selector: str | None) -> str:
     """Resolve a Unity instance selector to a full instance ID.
 
     Matching priority: exact id > id prefix > name exact > first available.
@@ -351,3 +354,154 @@ def resolve_instance(client: McpClient, selector: str | None) -> str:
         "INSTANCE_NOT_FOUND",
         f"Instance '{selector}' not found; available: {available}",
     )
+
+
+class _LineReader:
+    """Buffered line reader with select()-based timeout. Returns None on timeout, b'' on EOF."""
+
+    __slots__ = ("_fd", "_buf")
+
+    def __init__(self, fd: int) -> None:
+        self._fd = fd
+        self._buf = b""
+
+    def readline(self, timeout: float) -> bytes | None:
+        deadline = time.monotonic() + timeout
+        while True:
+            nl = self._buf.find(b"\n")
+            if nl >= 0:
+                line = self._buf[: nl + 1]
+                self._buf = self._buf[nl + 1 :]
+                return line
+
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                return None
+
+            ready, _, _ = select.select([self._fd], [], [], min(remaining, 1.0))
+            if not ready:
+                continue
+
+            chunk = os.read(self._fd, 8192)
+            if not chunk:
+                if self._buf:
+                    data = self._buf
+                    self._buf = b""
+                    return data
+                return b""
+
+            self._buf += chunk
+
+
+class StdioMcpClient:
+    """MCP JSON-RPC client over subprocess stdio pipe. Same interface as McpClient."""
+
+    def __init__(self, proc: subprocess.Popen[bytes], timeout_sec: float = 30.0) -> None:
+        self._proc = proc
+        self.timeout_sec = timeout_sec
+        self._seq: int = 1
+        assert proc.stdout is not None
+        self._reader = _LineReader(proc.stdout.fileno())
+
+    def _send(self, msg: dict[str, Any]) -> None:
+        assert self._proc.stdin is not None
+        data = json.dumps(msg, separators=(",", ":")) + "\n"
+        self._proc.stdin.write(data.encode("utf-8"))
+        self._proc.stdin.flush()
+
+    def _recv(self, request_id: int) -> dict[str, Any]:
+        deadline = time.monotonic() + self.timeout_sec
+        while time.monotonic() < deadline:
+            if self._proc.poll() is not None:
+                raise McpError("SERVER_DIED", "MCP server process exited unexpectedly")
+
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+
+            raw = self._reader.readline(min(remaining, 2.0))
+            if raw is None:
+                continue
+            if raw == b"":
+                raise McpError("SERVER_DIED", "MCP server closed stdout")
+
+            raw = raw.strip()
+            if not raw:
+                continue
+
+            try:
+                msg = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+
+            if not isinstance(msg, dict):
+                continue
+
+            if "id" not in msg:
+                continue
+
+            if msg.get("id") == request_id:
+                return msg
+
+        raise McpError("TIMEOUT", f"Timeout waiting for response (id={request_id})")
+
+    def _request(self, method: str, params: dict[str, Any]) -> dict[str, Any]:
+        req_id = self._seq
+        self._seq += 1
+        self._send({"jsonrpc": "2.0", "id": req_id, "method": method, "params": params})
+        return self._recv(req_id)
+
+    def initialize(self) -> dict[str, Any]:
+        resp = self._request(
+            "initialize",
+            {
+                "protocolVersion": "2025-03-26",
+                "capabilities": {},
+                "clientInfo": {"name": "uni-cli", "version": "0.1.0"},
+            },
+        )
+        if "error" in resp:
+            err = resp["error"]
+            raise McpError("INIT_FAILED", f"initialize failed: {err}")
+
+        self._send({"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}})
+        return resp.get("result", {})
+
+    def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
+        resp = self._request("tools/call", {"name": name, "arguments": arguments})
+        if "error" in resp:
+            err = resp["error"]
+            raise McpError(
+                str(err.get("code", "RPC_ERROR")),
+                err.get("message", str(err)),
+                err.get("data"),
+            )
+        result = resp.get("result", {})
+        if result.get("isError"):
+            raise McpError("TOOL_ERROR", f"tool {name} returned error", result)
+        return result
+
+    def read_resource(self, uri: str) -> dict[str, Any]:
+        resp = self._request("resources/read", {"uri": uri})
+        if "error" in resp:
+            err = resp["error"]
+            raise McpError(
+                str(err.get("code", "RPC_ERROR")),
+                err.get("message", str(err)),
+                err.get("data"),
+            )
+        return resp.get("result", {})
+
+    def list_tools(self) -> list[dict[str, Any]]:
+        resp = self._request("tools/list", {})
+        if "error" in resp:
+            err = resp["error"]
+            raise McpError(
+                str(err.get("code", "RPC_ERROR")),
+                err.get("message", str(err)),
+                err.get("data"),
+            )
+        return resp.get("result", {}).get("tools", [])
+
+    def close(self) -> None:
+        pass

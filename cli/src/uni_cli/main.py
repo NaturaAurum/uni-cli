@@ -9,7 +9,8 @@ from typing import Any
 
 from uni_cli import __version__
 from uni_cli.formatter.compact import format_error, format_json, format_result
-from uni_cli.transport.mcp_client import McpClient, McpError, resolve_instance
+from uni_cli.transport.mcp_client import McpClient, McpError, StdioMcpClient, resolve_instance
+from uni_cli.transport.server_manager import ServerHandle, ensure_server, is_server_running, stop_server
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -40,6 +41,18 @@ def _build_parser() -> argparse.ArgumentParser:
         type=float,
         default=30.0,
         help="MCP request timeout in seconds (default: 30)",
+    )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        default=False,
+        help="Show server lifecycle messages on stderr",
+    )
+    parser.add_argument(
+        "--no-auto-server",
+        action="store_true",
+        default=False,
+        help="Disable auto-start of MCP server (fail if not running)",
     )
 
     sub = parser.add_subparsers(dest="command", help="Available commands")
@@ -130,7 +143,9 @@ def _parse_bool(val: str) -> bool:
     raise argparse.ArgumentTypeError(f"Expected bool, got '{val}'")
 
 
-def _dispatch(client: McpClient, instance_id: str, args: argparse.Namespace) -> tuple[str, str, dict[str, Any]]:
+def _dispatch(
+    client: McpClient | StdioMcpClient, instance_id: str, args: argparse.Namespace
+) -> tuple[str, str, dict[str, Any]]:
     """Dispatch command and return (command, action, result_data)."""
     cmd = args.command
     action = getattr(args, "action", None) or ""
@@ -237,43 +252,52 @@ def main() -> int:
         parser.print_help()
         return 0
 
-    # Connect to MCP server
+    server_handle: ServerHandle | None = None
+    client: McpClient | StdioMcpClient | None = None
+
     try:
-        client = McpClient(url=args.url, timeout_sec=args.timeout)
+        use_stdio = False
+
+        if args.no_auto_server:
+            pass
+        elif is_server_running(args.url):
+            pass
+        else:
+            try:
+                server_handle = ensure_server(verbose=args.verbose)
+                use_stdio = True
+            except RuntimeError as exc:
+                print(format_error("SERVER_ERROR", str(exc)))
+                return 1
+
+        if use_stdio and server_handle is not None:
+            client = StdioMcpClient(proc=server_handle.process, timeout_sec=args.timeout)
+        else:
+            client = McpClient(url=args.url, timeout_sec=args.timeout)
+
         client.initialize()
+
+        instance_id = resolve_instance(client, args.instance)
+        cmd, action, data = _dispatch(client, instance_id, args)
+        client.close()
+
     except McpError as exc:
         print(format_error(exc.code, exc.message))
         return 1
     except Exception as exc:
         print(format_error("CONNECTION_ERROR", str(exc)))
         return 1
-
-    # Resolve Unity instance
-    try:
-        instance_id = resolve_instance(client, args.instance)
-    except McpError as exc:
-        print(format_error(exc.code, exc.message))
-        return 1
-
-    # Dispatch command
-    try:
-        cmd, action, data = _dispatch(client, instance_id, args)
-    except McpError as exc:
-        print(format_error(exc.code, exc.message))
-        return 1
-    except Exception as exc:
-        print(format_error("INTERNAL_ERROR", str(exc)))
-        return 1
     finally:
-        client.close()
+        if server_handle is not None:
+            if args.verbose:
+                print("[uni-cli] Stopping MCP server.", file=sys.stderr)
+            stop_server(server_handle)
 
-    # Check for error in result
     if isinstance(data, dict) and data.get("success") is False:
         err_msg = data.get("error") or data.get("message") or "unknown_error"
         print(format_error("TOOL_ERROR", str(err_msg)))
         return 1
 
-    # Format output
     if args.output_format == "json":
         print(format_json(data))
     else:
