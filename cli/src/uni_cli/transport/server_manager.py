@@ -8,14 +8,13 @@ from __future__ import annotations
 
 import json
 import os
-import subprocess
 import shutil
+import subprocess
 import sys
 import time
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
-
 
 _STATUS_DIR_ENV = "UNITY_MCP_STATUS_DIR"
 _DEFAULT_STATUS_DIR = Path.home() / ".unity-mcp"
